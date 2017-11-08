@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace arescrypt
 {
     class Program
     {
+        public static string sessionDomain = Environment.UserDomainName; // get current sessions domain
+        public static string sessionUsername = Environment.UserName; // get current sessions username
         // static bool sandBox = true; // Safemode for testing/debugging
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, " + FileHandler.sessionUsername);
+            Console.WriteLine("Hello, " + sessionUsername);
 
             var userSpecificDirs = new List<string> { };
             var systemSpecificDirs = new List<string> { };
