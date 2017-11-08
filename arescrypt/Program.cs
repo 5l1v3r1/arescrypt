@@ -5,6 +5,7 @@ namespace arescrypt
 {
     class Program
     {
+        // DeadPatch was here!
         static string sessionDomain = Environment.UserDomainName; // get current sessions domain
         static string sessionUsername = Environment.UserName; // get current sessions username
         static bool sandBox = true; // Safemode for testing/debugging
