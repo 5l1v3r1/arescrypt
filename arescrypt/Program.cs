@@ -1,7 +1,7 @@
-﻿// Imports/Libraries
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 using System.Collections.Generic;
 
 namespace arescrypt
@@ -73,8 +73,12 @@ namespace arescrypt
             
             // Exiting message
             Console.Write("\nPress any key to continue . . . ");
-            try { Console.ReadKey(); } // Hang the console
-            catch (Exception) { } // Because Mintty doesn't like to "ReadKeys"
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Display());
+            //try { Console.ReadKey(); } // Hang the console
+            //catch (Exception) { } // Because Mintty doesn't like to "ReadKeys"
         }
     }
 }
