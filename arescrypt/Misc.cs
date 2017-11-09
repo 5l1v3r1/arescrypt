@@ -15,7 +15,5 @@ namespace arescrypt
                 fullIndex.Add(element);
             return fullIndex;
         }
-
-        // Converts List<string> to string
     }
 }
