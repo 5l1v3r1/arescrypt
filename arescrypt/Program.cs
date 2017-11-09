@@ -12,11 +12,14 @@ namespace arescrypt
 
         static void Main(string[] args)
         {
+            // Welcome message
+            Console.Write("Hello, " + sessionDomain + @"\" + sessionUsername);
 #if DEBUG
-            Console.WriteLine("Hello, " + sessionUsername + ". DEBUG mode has been enabled.");
+            Console.Write(". DEBUG mode has been enabled.\n");
 #else
-            Console.WriteLine("Hello, " + sessionUsername + ". RELEASE mode has been enabled.");
+            Console.Write(". RELEASE mode has been enabled.\n");
 #endif
+            // End welcome message
 
             var userSpecificDirs = new List<string> { "" };
             var systemSpecificDirs = new List<string> { "" };
