@@ -12,8 +12,8 @@ namespace arescrypt
         public static string sessionDomain = Environment.UserDomainName; // get current sessions domain
         public static string sessionUsername = Environment.UserName; // get current sessions username
         public static string currentWorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        private static bool sandBox = true; // Safemode for testing/debugging
 
+        private static bool sandBox = true; // Safemode for testing/debugging
         private static string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
 
         static void Main(string[] args)

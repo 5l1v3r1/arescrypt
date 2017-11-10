@@ -34,26 +34,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
-            this.label4 = new System.Windows.Forms.Label();
-=======
             this.paymentTimer = new System.Windows.Forms.Label();
->>>>>>> df4b2a02768bceb6214acbb79febf65ea396607e
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lostTimer = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-=======
             this.copyBtn = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,7 +48,6 @@
             this.AboutBitcoin = new System.Windows.Forms.Label();
             this.AboutLitecoin = new System.Windows.Forms.Label();
             this.AboutZcash = new System.Windows.Forms.Label();
->>>>>>> df4b2a02768bceb6214acbb79febf65ea396607e
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -124,17 +109,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-<<<<<<< HEAD
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(77, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 24);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "00:00:00\r\n";
-=======
             // paymentTimer
             // 
             this.paymentTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,7 +118,6 @@
             this.paymentTimer.Size = new System.Drawing.Size(87, 24);
             this.paymentTimer.TabIndex = 1;
             this.paymentTimer.Text = "00:00:00\r\n";
->>>>>>> df4b2a02768bceb6214acbb79febf65ea396607e
             // 
             // label3
             // 
@@ -198,17 +171,6 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             // 
-<<<<<<< HEAD
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(278, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Copy";
-            this.button1.UseVisualStyleBackColor = true;
-=======
             // copyBtn
             // 
             this.copyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -218,7 +180,6 @@
             this.copyBtn.TabIndex = 8;
             this.copyBtn.Text = "Copy";
             this.copyBtn.UseVisualStyleBackColor = true;
->>>>>>> df4b2a02768bceb6214acbb79febf65ea396607e
             // 
             // textBox2
             // 
@@ -240,58 +201,7 @@
             this.label8.Size = new System.Drawing.Size(531, 24);
             this.label8.TabIndex = 0;
             this.label8.Text = "Send $500 USD worth of bitcoin/Litecoin/Zcash to this address:";
-            // 
-<<<<<<< HEAD
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(247, 471);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(194, 37);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Check Payment";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(678, 471);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(194, 37);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Decrypt";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(37, 410);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "About Bitcoin";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(37, 439);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "About Litecoin";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(37, 471);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 13);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "About Zcash";
-=======
+            //
             // checkpaymentBtn
             // 
             this.checkpaymentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -341,7 +251,6 @@
             this.AboutZcash.Size = new System.Drawing.Size(68, 13);
             this.AboutZcash.TabIndex = 13;
             this.AboutZcash.Text = "About Zcash";
->>>>>>> df4b2a02768bceb6214acbb79febf65ea396607e
             // 
             // Display
             // 
