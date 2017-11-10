@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
 using System.Drawing;
 
 namespace arescrypt
@@ -19,7 +13,6 @@ namespace arescrypt
         public Display()
         {
             InitializeComponent();
-            Cursor.Hide();
         }
 
         private void Display_Load(object sender, EventArgs e)
