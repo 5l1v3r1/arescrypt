@@ -28,16 +28,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.paymentTimer = new System.Windows.Forms.Label();
+            this.paymentTimer_Rise = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lostTimer = new System.Windows.Forms.Label();
+            this.paymentTimer_Lost = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.copyBtn = new System.Windows.Forms.Button();
@@ -45,21 +44,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.checkpaymentBtn = new System.Windows.Forms.Button();
             this.decryptBtn = new System.Windows.Forms.Button();
-            this.RiseTimer = new System.Windows.Forms.Timer(this.components);
+            this.riseTimer = new System.Windows.Forms.Timer(this.components);
             this.aboutBitcoin = new System.Windows.Forms.LinkLabel();
             this.aboutLitecoin = new System.Windows.Forms.LinkLabel();
             this.aboutZcash = new System.Windows.Forms.LinkLabel();
+            this.lostTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
             // 
@@ -103,7 +97,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.paymentTimer);
+            this.groupBox1.Controls.Add(this.paymentTimer_Rise);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 222);
             this.groupBox1.Name = "groupBox1";
@@ -111,15 +105,15 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // paymentTimer
+            // paymentTimer_Rise
             // 
-            this.paymentTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentTimer.ForeColor = System.Drawing.Color.White;
-            this.paymentTimer.Location = new System.Drawing.Point(77, 40);
-            this.paymentTimer.Name = "paymentTimer";
-            this.paymentTimer.Size = new System.Drawing.Size(87, 24);
-            this.paymentTimer.TabIndex = 1;
-            this.paymentTimer.Text = "72:00:00\r\n";
+            this.paymentTimer_Rise.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTimer_Rise.ForeColor = System.Drawing.Color.White;
+            this.paymentTimer_Rise.Location = new System.Drawing.Point(77, 40);
+            this.paymentTimer_Rise.Name = "paymentTimer_Rise";
+            this.paymentTimer_Rise.Size = new System.Drawing.Size(87, 24);
+            this.paymentTimer_Rise.TabIndex = 1;
+            this.paymentTimer_Rise.Text = "72:00:00\r\n";
             // 
             // label3
             // 
@@ -134,7 +128,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lostTimer);
+            this.groupBox2.Controls.Add(this.paymentTimer_Lost);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(12, 307);
             this.groupBox2.Name = "groupBox2";
@@ -142,15 +136,15 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
-            // lostTimer
+            // paymentTimer_Lost
             // 
-            this.lostTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lostTimer.ForeColor = System.Drawing.Color.White;
-            this.lostTimer.Location = new System.Drawing.Point(77, 40);
-            this.lostTimer.Name = "lostTimer";
-            this.lostTimer.Size = new System.Drawing.Size(87, 24);
-            this.lostTimer.TabIndex = 1;
-            this.lostTimer.Text = "00:00:00\r\n";
+            this.paymentTimer_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTimer_Lost.ForeColor = System.Drawing.Color.White;
+            this.paymentTimer_Lost.Location = new System.Drawing.Point(77, 40);
+            this.paymentTimer_Lost.Name = "paymentTimer_Lost";
+            this.paymentTimer_Lost.Size = new System.Drawing.Size(87, 24);
+            this.paymentTimer_Lost.TabIndex = 1;
+            this.paymentTimer_Lost.Text = "00:00:00\r\n";
             // 
             // label6
             // 
@@ -225,11 +219,11 @@
             this.decryptBtn.Text = "Decrypt";
             this.decryptBtn.UseVisualStyleBackColor = true;
             // 
-            // RiseTimer
+            // riseTimer
             // 
-            this.RiseTimer.Enabled = true;
-            this.RiseTimer.Interval = 259200;
-            this.RiseTimer.Tick += new System.EventHandler(this.RiseTimer_Tick);
+            this.riseTimer.Enabled = true;
+            this.riseTimer.Interval = 1000;
+            this.riseTimer.Tick += new System.EventHandler(this.riseTimer_Tick);
             // 
             // aboutBitcoin
             // 
@@ -266,6 +260,12 @@
             this.aboutZcash.TabStop = true;
             this.aboutZcash.Text = "About Zcash";
             this.aboutZcash.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutZcash_LinkClicked);
+            // 
+            // lostTimer
+            // 
+            this.lostTimer.Enabled = true;
+            this.lostTimer.Interval = 1000;
+            this.lostTimer.Tick += new System.EventHandler(this.lostTimer_Tick);
             // 
             // Display
             // 
@@ -308,17 +308,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label paymentTimer;
+        private System.Windows.Forms.Label paymentTimer_Rise;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lostTimer;
+        private System.Windows.Forms.Label paymentTimer_Lost;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button copyBtn;
@@ -326,9 +324,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button checkpaymentBtn;
         private System.Windows.Forms.Button decryptBtn;
-        private System.Windows.Forms.Timer RiseTimer;
+        private System.Windows.Forms.Timer riseTimer;
         private System.Windows.Forms.LinkLabel aboutBitcoin;
         private System.Windows.Forms.LinkLabel aboutLitecoin;
         private System.Windows.Forms.LinkLabel aboutZcash;
+        private System.Windows.Forms.Timer lostTimer;
     }
 }
