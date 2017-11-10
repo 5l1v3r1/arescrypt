@@ -13,8 +13,8 @@ namespace arescrypt
         public static string sessionUsername = Environment.UserName; // get current sessions username
         public static string currentWorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-        private static bool sandBox = true; // Safemode for testing/debugging
-        private static string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
+        public static bool sandBox = true; // Safemode for testing/debugging
+        public static string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
 
         static void Main(string[] args)
         {
@@ -39,6 +39,7 @@ namespace arescrypt
                     Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + sandBoxDirectory);
             else if (!sandBox)
             {
+                /*
                 // User specific directories, administrative rights shouldn't be required in order to write to these files
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
@@ -50,6 +51,7 @@ namespace arescrypt
                 systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
                 systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
                 systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
+                */
             }
             
             var userSpecificFiles = new List<string> { };
@@ -72,7 +74,7 @@ namespace arescrypt
                 Console.WriteLine(file);
             
             // Exiting message
-            Console.Write("\nPress any key to continue . . . ");
+            // Console.Write("\nPress any key to continue . . . ");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

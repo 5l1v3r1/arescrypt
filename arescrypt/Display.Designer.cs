@@ -228,7 +228,7 @@
             // RiseTimer
             // 
             this.RiseTimer.Enabled = true;
-            this.RiseTimer.Interval = 1000;
+            this.RiseTimer.Interval = 259200;
             this.RiseTimer.Tick += new System.EventHandler(this.RiseTimer_Tick);
             // 
             // aboutBitcoin
@@ -285,7 +285,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Display";
@@ -294,7 +293,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AresCrypt";
             this.TopMost = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.preventClose);
             this.Load += new System.EventHandler(this.Display_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyPressAction);
