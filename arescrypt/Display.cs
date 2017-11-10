@@ -8,6 +8,7 @@ namespace arescrypt
 {
     public partial class Display : Form
     {
+
         [DllImport("user32.dll")]
         static extern void mouse_event(uint dwflag);
 
@@ -47,6 +48,26 @@ namespace arescrypt
             System.Threading.Thread.Sleep(666);
             Cursor.Position = cursorPos;
             mouse_event(0x002 | 0x004);
+        }
+
+        private void RiseTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aboutBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://bitcoin.org");
+        }
+
+        private void aboutLitecoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://litecoin.com/");
+        }
+
+        private void aboutZcash_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://z.cash/");
         }
     }
 }
