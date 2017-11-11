@@ -29,7 +29,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.displayMessage = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -62,25 +62,25 @@
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 3;
             // 
-            // textBox1
+            // displayMessage
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(247, 49);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(625, 331);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.displayMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayMessage.Location = new System.Drawing.Point(247, 49);
+            this.displayMessage.Multiline = true;
+            this.displayMessage.Name = "displayMessage";
+            this.displayMessage.ReadOnly = true;
+            this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.displayMessage.Size = new System.Drawing.Size(625, 331);
+            this.displayMessage.TabIndex = 1;
+            this.displayMessage.Text = resources.GetString("displayMessage.Text");
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 216);
+            this.pictureBox1.Size = new System.Drawing.Size(229, 207);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -89,7 +89,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(259, 9);
+            this.label2.Location = new System.Drawing.Point(278, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(553, 37);
             this.label2.TabIndex = 4;
@@ -109,9 +109,9 @@
             // 
             this.paymentTimer_Rise.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentTimer_Rise.ForeColor = System.Drawing.Color.White;
-            this.paymentTimer_Rise.Location = new System.Drawing.Point(77, 40);
+            this.paymentTimer_Rise.Location = new System.Drawing.Point(73, 40);
             this.paymentTimer_Rise.Name = "paymentTimer_Rise";
-            this.paymentTimer_Rise.Size = new System.Drawing.Size(87, 24);
+            this.paymentTimer_Rise.Size = new System.Drawing.Size(88, 24);
             this.paymentTimer_Rise.TabIndex = 1;
             this.paymentTimer_Rise.Text = "72:00:00\r\n";
             // 
@@ -120,7 +120,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(24, 16);
+            this.label3.Location = new System.Drawing.Point(22, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(187, 24);
             this.label3.TabIndex = 0;
@@ -130,7 +130,7 @@
             // 
             this.groupBox2.Controls.Add(this.paymentTimer_Lost);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(12, 307);
+            this.groupBox2.Location = new System.Drawing.Point(12, 301);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(229, 79);
             this.groupBox2.TabIndex = 6;
@@ -140,19 +140,19 @@
             // 
             this.paymentTimer_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentTimer_Lost.ForeColor = System.Drawing.Color.White;
-            this.paymentTimer_Lost.Location = new System.Drawing.Point(77, 40);
+            this.paymentTimer_Lost.Location = new System.Drawing.Point(68, 40);
             this.paymentTimer_Lost.Name = "paymentTimer_Lost";
-            this.paymentTimer_Lost.Size = new System.Drawing.Size(87, 24);
+            this.paymentTimer_Lost.Size = new System.Drawing.Size(93, 24);
             this.paymentTimer_Lost.TabIndex = 1;
-            this.paymentTimer_Lost.Text = "00:00:00\r\n";
+            this.paymentTimer_Lost.Text = "168:00:00\r\n";
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(18, 16);
+            this.label6.Location = new System.Drawing.Point(6, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(205, 24);
+            this.label6.Size = new System.Drawing.Size(217, 24);
             this.label6.TabIndex = 0;
             this.label6.Text = "Your files will be lost on";
             // 
@@ -283,7 +283,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.displayMessage);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -309,7 +309,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox displayMessage;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;

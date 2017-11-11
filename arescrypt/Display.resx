@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox1.Text" xml:space="preserve">
+  <data name="displayMessage.Text" xml:space="preserve">
     <value>What happen to your computer?
 Your important file are encrypted!
 Many of your documents, photos, videos, databases and others files are no longer
@@ -1953,6 +1953,6 @@ updates and removes this software automaticaly. It will not be able to recover y
     <value>141, 13</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>91</value>
+    <value>56</value>
   </metadata>
 </root>
