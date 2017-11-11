@@ -40,7 +40,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.copyBtn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cryptoAddress = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.checkpaymentBtn = new System.Windows.Forms.Button();
             this.decryptBtn = new System.Windows.Forms.Button();
@@ -72,6 +72,7 @@
             this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.displayMessage.Size = new System.Drawing.Size(625, 331);
             this.displayMessage.TabIndex = 1;
+            this.displayMessage.Text = "Example text.";
             // 
             // pictureBox1
             // 
@@ -158,7 +159,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.copyBtn);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.cryptoAddress);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(247, 386);
             this.groupBox3.Name = "groupBox3";
@@ -169,23 +170,23 @@
             // copyBtn
             // 
             this.copyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyBtn.Location = new System.Drawing.Point(278, 43);
+            this.copyBtn.Location = new System.Drawing.Point(439, 43);
             this.copyBtn.Name = "copyBtn";
             this.copyBtn.Size = new System.Drawing.Size(107, 23);
             this.copyBtn.TabIndex = 8;
             this.copyBtn.Text = "Copy";
             this.copyBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // cryptoAddress
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(19, 43);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(253, 23);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Money Address";
+            this.cryptoAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cryptoAddress.Location = new System.Drawing.Point(19, 43);
+            this.cryptoAddress.Multiline = true;
+            this.cryptoAddress.Name = "cryptoAddress";
+            this.cryptoAddress.ReadOnly = true;
+            this.cryptoAddress.Size = new System.Drawing.Size(414, 23);
+            this.cryptoAddress.TabIndex = 1;
+            this.cryptoAddress.Text = "Money Address";
             // 
             // label8
             // 
@@ -271,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(884, 520);
+            this.ClientSize = new System.Drawing.Size(882, 520);
             this.Controls.Add(this.aboutZcash);
             this.Controls.Add(this.aboutLitecoin);
             this.Controls.Add(this.aboutBitcoin);
@@ -316,7 +317,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button copyBtn;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox cryptoAddress;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button checkpaymentBtn;
         private System.Windows.Forms.Button decryptBtn;

