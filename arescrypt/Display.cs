@@ -26,28 +26,26 @@ namespace arescrypt
             this.displayMessage.Text = config.customDisplayMessage;
         }
         
-        // 168:00:00
-        // 0xA8:0x00:0x00
-        int lostTimer_Hours = 0xA8; int lostTimer_Minutes = 0x0; int lostTimer_Seconds = 0x0;
+        
         private void lostTimer_Tick(object sender, EventArgs e)
         {
-            string lostTimer_Hours_Text = lostTimer_Hours.ToString();
-            string lostTimer_Minutes_Text = lostTimer_Minutes.ToString();
-            string lostTimer_Seconds_Text = lostTimer_Seconds.ToString();
+            string lostTimer_Hours_Text = config.lostTimer_Hours.ToString();
+            string lostTimer_Minutes_Text = config.lostTimer_Minutes.ToString();
+            string lostTimer_Seconds_Text = config.lostTimer_Seconds.ToString();
 
-            if (lostTimer_Minutes == 0x0 && lostTimer_Seconds == 0x0)
+            if (config.lostTimer_Minutes == 0x0 && config.lostTimer_Seconds == 0x0)
             {
-                lostTimer_Hours--; // Decrement 'Hours' variable
-                lostTimer_Minutes = 0x3B; // 60
-                lostTimer_Seconds = 0x3C;
+                config.lostTimer_Hours--; // Decrement 'Hours' variable
+                config.lostTimer_Minutes = 0x3B; // 60
+                config.lostTimer_Seconds = 0x3C;
             }
-            else if (lostTimer_Seconds == 0x0)
+            else if (config.lostTimer_Seconds == 0x0)
             {
-                lostTimer_Minutes--;
-                lostTimer_Seconds = 0x3B;
+                config.lostTimer_Minutes--;
+                config.lostTimer_Seconds = 0x3B;
             }
 
-            lostTimer_Seconds--;
+            config.lostTimer_Seconds--;
             if (lostTimer_Hours_Text.Length == 1)
                 lostTimer_Hours_Text = 0x0.ToString() + lostTimer_Hours_Text;
             if (lostTimer_Minutes_Text.Length == 1)
@@ -57,28 +55,25 @@ namespace arescrypt
 
             paymentTimer_Lost.Text = lostTimer_Hours_Text + ":" + lostTimer_Minutes_Text + ":" + lostTimer_Seconds_Text;
         }
-
-        // 72:00:00
-        // 0x48:0x00:0x00
-        int riseTimer_Hours = 0x48; int riseTimer_Minutes = 0x0; int riseTimer_Seconds = 0x0;
+        
         private void riseTimer_Tick(object sender, EventArgs e)
         {
-            string riseTimer_Hours_Text = riseTimer_Hours.ToString();
-            string riseTimer_Minutes_Text = riseTimer_Minutes.ToString();
-            string riseTimer_Seconds_Text = riseTimer_Seconds.ToString();
+            string riseTimer_Hours_Text = config.riseTimer_Hours.ToString();
+            string riseTimer_Minutes_Text = config.riseTimer_Minutes.ToString();
+            string riseTimer_Seconds_Text = config.riseTimer_Seconds.ToString();
 
-            if (riseTimer_Minutes == 0x0 && riseTimer_Seconds == 0x0)
+            if (config.riseTimer_Minutes == 0x0 && config.riseTimer_Seconds == 0x0)
             {
-                riseTimer_Hours--; // Decrement 'Hours' variable
-                riseTimer_Minutes = 0x3B; // 60
-                riseTimer_Seconds = 0x3C;
-            } else if (riseTimer_Seconds == 0x0)
+                config.riseTimer_Hours--; // Decrement 'Hours' variable
+                config.riseTimer_Minutes = 0x3B; // 60
+                config.riseTimer_Seconds = 0x3C; // 59
+            } else if (config.riseTimer_Seconds == 0x0)
             {
-                riseTimer_Minutes--;
-                riseTimer_Seconds = 60;
+                config.riseTimer_Minutes--;
+                config.riseTimer_Seconds = 60;
             }
 
-            riseTimer_Seconds--;
+            config.riseTimer_Seconds--;
 
             if (riseTimer_Hours_Text.Length == 1)
                 riseTimer_Hours_Text = 0x0.ToString() + riseTimer_Hours_Text;
