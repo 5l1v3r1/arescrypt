@@ -49,6 +49,8 @@
             this.aboutLitecoin = new System.Windows.Forms.LinkLabel();
             this.aboutZcash = new System.Windows.Forms.LinkLabel();
             this.lostTimer = new System.Windows.Forms.Timer(this.components);
+            this.uniqueKeyDIsplay = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -72,7 +74,7 @@
             this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.displayMessage.Size = new System.Drawing.Size(625, 331);
             this.displayMessage.TabIndex = 1;
-            this.displayMessage.Text = "Example text.";
+            this.displayMessage.Text = resources.GetString("displayMessage.Text");
             // 
             // pictureBox1
             // 
@@ -195,9 +197,9 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(15, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(531, 24);
+            this.label8.Size = new System.Drawing.Size(532, 24);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Send $500 USD worth of bitcoin/Litecoin/Zcash to this address:";
+            this.label8.Text = "Send $500 USD worth of Bitcoin/Litecoin/Zcash to this address:";
             // 
             // checkpaymentBtn
             // 
@@ -267,12 +269,32 @@
             this.lostTimer.Interval = 1000;
             this.lostTimer.Tick += new System.EventHandler(this.lostTimer_Tick);
             // 
+            // uniqueKeyDIsplay
+            // 
+            this.uniqueKeyDIsplay.Location = new System.Drawing.Point(448, 487);
+            this.uniqueKeyDIsplay.Name = "uniqueKeyDIsplay";
+            this.uniqueKeyDIsplay.ReadOnly = true;
+            this.uniqueKeyDIsplay.Size = new System.Drawing.Size(224, 20);
+            this.uniqueKeyDIsplay.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(448, 471);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Unique User ID:";
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(882, 520);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.uniqueKeyDIsplay);
             this.Controls.Add(this.aboutZcash);
             this.Controls.Add(this.aboutLitecoin);
             this.Controls.Add(this.aboutBitcoin);
@@ -327,5 +349,7 @@
         private System.Windows.Forms.LinkLabel aboutZcash;
         private System.Windows.Forms.Timer lostTimer;
         public System.Windows.Forms.TextBox displayMessage;
+        public System.Windows.Forms.TextBox uniqueKeyDIsplay;
+        private System.Windows.Forms.Label label4;
     }
 }

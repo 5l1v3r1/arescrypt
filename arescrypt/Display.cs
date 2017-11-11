@@ -23,7 +23,7 @@ namespace arescrypt
             }
 
             this.cryptoAddress.Text = config.cryptoAddress;
-            this.displayMessage.Text = config.customDisplayMessage;
+            this.uniqueKeyDIsplay.Text = config.uniqueKey;
         }
         
         
