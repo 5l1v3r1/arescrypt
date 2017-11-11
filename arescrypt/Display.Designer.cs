@@ -72,7 +72,6 @@
             this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.displayMessage.Size = new System.Drawing.Size(625, 331);
             this.displayMessage.TabIndex = 1;
-            this.displayMessage.Text = resources.GetString("displayMessage.Text");
             // 
             // pictureBox1
             // 
@@ -294,8 +293,6 @@
             this.Text = "AresCrypt";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.preventClose);
-            this.Load += new System.EventHandler(this.Display_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyPressAction);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -309,7 +306,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox displayMessage;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -329,5 +325,6 @@
         private System.Windows.Forms.LinkLabel aboutLitecoin;
         private System.Windows.Forms.LinkLabel aboutZcash;
         private System.Windows.Forms.Timer lostTimer;
+        public System.Windows.Forms.TextBox displayMessage;
     }
 }

