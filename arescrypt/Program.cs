@@ -29,6 +29,7 @@ namespace arescrypt
             var systemSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
 
+
             if (config.sandBox) // == true
                 if (Directory.Exists(config.sandBoxDirectory))
                     userSpecificDirs.Add(config.sandBoxDirectory);
@@ -54,6 +55,8 @@ namespace arescrypt
             var userSpecificFiles = new List<string> { };
             var systemSpecificFiles = new List<string> { };
 
+            // Get all files in every directory specified above.
+            // Then add to a List<string> (array)
             foreach (string dir in userSpecificDirs)
                 foreach (string file in FileHandler.DirSearch(dir))
                     userSpecificFiles.Add(file);
@@ -67,9 +70,11 @@ namespace arescrypt
                 fullFileIndex = Misc.concatList(userSpecificFiles, systemSpecificFiles).ToArray();
             }
 
+            // Print out all discovered files.
             foreach (string file in fullFileIndex)
                 Console.WriteLine(file);
                         
+            // Giving "Debug Mode" switch in Configuration it's usability
             if (config.debugMode) // == true
             {
                 // Exiting message

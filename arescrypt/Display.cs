@@ -27,8 +27,6 @@ namespace arescrypt
             this.displayMessage.Text = config.customDisplayMessage;
         }
         
-        Point cursorPos = new Point(Screen.PrimaryScreen.WorkingArea.Size.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
-
         // 168:00:00
         // 0xA8:0x00:0x00
         int lostTimer_Hours = 0xA8; int lostTimer_Minutes = 0x0; int lostTimer_Seconds = 0x0;

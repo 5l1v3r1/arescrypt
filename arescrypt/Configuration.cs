@@ -1,11 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace arescrypt
+﻿namespace arescrypt
 {
     class Configuration
     {
-
         public static string currentWorkingDirectory = System.IO.Path.GetDirectoryName(
             System.Reflection.Assembly.GetExecutingAssembly().Location);
 
