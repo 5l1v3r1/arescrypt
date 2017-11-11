@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -45,7 +44,7 @@ namespace arescrypt
             else if (lostTimer_Seconds == 0x0)
             {
                 lostTimer_Minutes--;
-                lostTimer_Seconds = 60;
+                lostTimer_Seconds = 0x3B;
             }
 
             lostTimer_Seconds--;

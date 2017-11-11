@@ -6,7 +6,7 @@
             System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         // Debugging configuration
-        public bool sandBox = true; // Safemode for testing/debugging
+        public bool sandBox = false; // Safemode for testing/debugging
         public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
         public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
 
