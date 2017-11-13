@@ -39,11 +39,10 @@ namespace arescrypt
          *      Attacker callback URL
          */
         // Extract data from generated DAT file
-        public static void SetDATFileData(ServerData dataToSet)
+        public static void SetDATFileData(UserData dataToSet)
         {
             string dataToSet_Json = JsonConvert.SerializeObject(dataToSet);
-            Console.WriteLine(dataToSet_Json);
-            using (BinaryWriter writer = new BinaryWriter(File.Open(config.datFileLocation, FileMode.Create)))
+            using (BinaryWriter writer = new BinaryWriter(File.Open(Configuration.datFileLocation, FileMode.Create)))
             {
                 writer.Write(1.250F); // Ignore this
                 writer.Write(dataToSet_Json);
@@ -55,9 +54,9 @@ namespace arescrypt
             float aspectRatio; // Ignore this
             string jsonData;
 
-            if (File.Exists(config.datFileLocation))
+            if (File.Exists(Configuration.datFileLocation))
             {
-                using (BinaryReader reader = new BinaryReader(File.Open(config.datFileLocation, FileMode.Open)))
+                using (BinaryReader reader = new BinaryReader(File.Open(Configuration.datFileLocation, FileMode.Open)))
                 {
                     aspectRatio = reader.ReadSingle(); // Ignore this
                     jsonData = reader.ReadString();
@@ -66,21 +65,21 @@ namespace arescrypt
                 Console.WriteLine("JSON Data String: " + jsonData);
             }
         }
-        public static ServerData GetDATFileData()
+        public static UserData GetDATFileData()
         {
             float aspectRatio = default(float); // Ignore this
             string jsonData = default(string);
 
-            if (File.Exists(config.datFileLocation))
+            if (File.Exists(Configuration.datFileLocation))
             {
-                using (BinaryReader reader = new BinaryReader(File.Open(config.datFileLocation, FileMode.Open)))
+                using (BinaryReader reader = new BinaryReader(File.Open(Configuration.datFileLocation, FileMode.Open)))
                 {
                     aspectRatio = reader.ReadSingle(); // Ignore this
                     jsonData = reader.ReadString();
                 }
             }
 
-            ServerData conf = JsonConvert.DeserializeObject<ServerData>(jsonData);
+            UserData conf = JsonConvert.DeserializeObject<UserData>(jsonData);
             return conf;
         }
 

