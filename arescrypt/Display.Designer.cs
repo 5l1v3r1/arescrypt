@@ -221,6 +221,7 @@
             this.decryptBtn.TabIndex = 10;
             this.decryptBtn.Text = "Decrypt";
             this.decryptBtn.UseVisualStyleBackColor = true;
+            this.decryptBtn.Click += new System.EventHandler(this.decryptBtn_Click);
             // 
             // riseTimer
             // 
