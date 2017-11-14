@@ -210,6 +210,7 @@
             this.checkpaymentBtn.TabIndex = 9;
             this.checkpaymentBtn.Text = "Check Payment";
             this.checkpaymentBtn.UseVisualStyleBackColor = true;
+            this.checkpaymentBtn.Click += new System.EventHandler(this.checkpaymentBtn_Click);
             // 
             // decryptBtn
             // 

