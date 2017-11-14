@@ -7,6 +7,9 @@ namespace arescrypt
 {
     class Cryptography
     {
+        public static byte[] encKey = default(byte[]);
+        public static byte[] encIV = default(byte[]);
+
         // Thanks to: https://stackoverflow.com/a/1344242/8280922
         private static Random random = new Random();
         // Generate alphanumeric string, given desired length
@@ -30,7 +33,6 @@ namespace arescrypt
                 // vector (IV).
                 using (AesManaged myAes = new AesManaged())
                 {
-
                     // Encrypt the string to an array of bytes.
                     byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
                     

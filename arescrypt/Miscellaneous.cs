@@ -4,6 +4,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Net;
 
 namespace arescrypt
 {
@@ -81,6 +82,16 @@ namespace arescrypt
 
             UserData conf = JsonConvert.DeserializeObject<UserData>(jsonData);
             return conf;
+        }
+
+        public static string GetPublicIPAddress()
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.Headers.Add("user-agent", "curl");
+                return client.DownloadString("http://ipinfo.io/");
+            }
+            // return new WebClient().DownloadString("ipinfo.io");
         }
 
         public static void HideWindow()
