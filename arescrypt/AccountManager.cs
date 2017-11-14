@@ -16,9 +16,14 @@ namespace arescrypt
 
             using (WebClient wc = new WebClient())
             {
-                string response = wc.DownloadString(url);
-                JToken jsonObject = JObject.Parse(response);
-                return (bool)jsonObject.SelectToken("verifiedAccount");
+                try
+                {
+                    string response = wc.DownloadString(url);
+                    JToken jsonObject = JObject.Parse(response);
+                    return (bool)jsonObject.SelectToken("verifiedAccount");
+                }
+                catch (WebException exc)
+                { Console.WriteLine("Caught exception: " + exc.Message); return false; }
             }
         }
 
@@ -36,11 +41,14 @@ namespace arescrypt
             using (WebClient wc = new WebClient())
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                string response = wc.UploadString(Configuration.callbackURL, userParams);
+                try
+                {
+                    string response = wc.UploadString(Configuration.callbackURL, userParams);
 
-                Console.WriteLine("Response: \"" + response + "\"");
-                JToken jsonObject = JObject.Parse(response);
-                return (bool)jsonObject.SelectToken("verifiedAccount");
+                    JToken jsonObject = JObject.Parse(response);
+                    return (bool)jsonObject.SelectToken("creationSuccess");
+                } catch (WebException exc)
+                { Console.WriteLine("Caught exception: " + exc.Message); return false; }
             }
         }
         

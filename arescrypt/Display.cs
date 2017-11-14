@@ -104,7 +104,9 @@ namespace arescrypt
 
         private void checkpaymentBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Verified? " + accountManager.CheckVerification());
+            bool verifiedAccount = accountManager.CheckVerification();
+            
+            MessageBox.Show("Verified? " + verifiedAccount);
         }
     }
 }

