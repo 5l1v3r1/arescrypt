@@ -181,14 +181,14 @@
             // 
             // cryptoAddress
             // 
-            this.cryptoAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cryptoAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cryptoAddress.Location = new System.Drawing.Point(19, 43);
             this.cryptoAddress.Multiline = true;
             this.cryptoAddress.Name = "cryptoAddress";
             this.cryptoAddress.ReadOnly = true;
             this.cryptoAddress.Size = new System.Drawing.Size(414, 23);
             this.cryptoAddress.TabIndex = 1;
-            this.cryptoAddress.Text = "Money Address";
+            this.cryptoAddress.Text = "Crypto Address";
             // 
             // label8
             // 
@@ -271,11 +271,13 @@
             // 
             // uniqueKeyDisplay
             // 
-            this.uniqueKeyDisplay.Location = new System.Drawing.Point(448, 487);
+            this.uniqueKeyDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.uniqueKeyDisplay.Location = new System.Drawing.Point(448, 486);
             this.uniqueKeyDisplay.Name = "uniqueKeyDisplay";
             this.uniqueKeyDisplay.ReadOnly = true;
-            this.uniqueKeyDisplay.Size = new System.Drawing.Size(224, 20);
+            this.uniqueKeyDisplay.Size = new System.Drawing.Size(224, 22);
             this.uniqueKeyDisplay.TabIndex = 14;
+            this.uniqueKeyDisplay.Text = "Unique ID";
             // 
             // label4
             // 

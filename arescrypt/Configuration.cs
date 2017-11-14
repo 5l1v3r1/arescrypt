@@ -40,7 +40,6 @@
 
                 System.Console.WriteLine("No DAT file discovered, creating one now..");
                 Miscellaneous.SetDATFileData(this);
-                System.Console.WriteLine("DAT file created [" + Configuration.datFileLocation + "]");
             }
             else
             {
