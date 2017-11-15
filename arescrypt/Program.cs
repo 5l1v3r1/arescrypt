@@ -14,6 +14,7 @@ namespace arescrypt
         static UserData userData = new UserData();
         static AccountManager accountManager = new AccountManager();
 
+        [STAThread]
         static void Main(string[] args)
         {
             /*

