@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace arescrypt
 {
@@ -70,6 +71,7 @@ namespace arescrypt
         {
             float aspectRatio = default(float); // Ignore this
             string jsonData = default(string);
+            UserData userData = new UserData();
 
             if (File.Exists(Configuration.datFileLocation))
             {
@@ -80,8 +82,12 @@ namespace arescrypt
                 }
             }
 
-            UserData conf = JsonConvert.DeserializeObject<UserData>(jsonData);
-            return conf;
+            JToken jsonObject = JObject.Parse(jsonData);
+            userData.uniqueKey = (string)jsonObject.SelectToken("uniqueKey");
+            userData.encKey = (string)jsonObject.SelectToken("encKey");
+            userData.encIV = (string)jsonObject.SelectToken("encIV");
+
+            return userData;
         }
 
         public static string GetPublicIPAddress()

