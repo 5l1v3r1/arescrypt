@@ -190,7 +190,7 @@
             this.cryptoAddress.Name = "cryptoAddress";
             this.cryptoAddress.ReadOnly = true;
             this.cryptoAddress.Size = new System.Drawing.Size(414, 23);
-            this.cryptoAddress.TabIndex = 1;
+            this.cryptoAddress.TabIndex = 17;
             this.cryptoAddress.Text = "Crypto Address";
             // 
             // label8
