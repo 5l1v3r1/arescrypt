@@ -12,3 +12,4 @@ if exist "arescrypt/bin/Release" (
 	if exist "arescrypt\bin\Release\arescrypt.pdb" del /Q "arescrypt\bin\Release\arescrypt.pdb"
 )
 echo All project files have been erased...
+pause
