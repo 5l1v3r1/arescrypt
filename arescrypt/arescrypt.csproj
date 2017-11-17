@@ -55,6 +55,12 @@
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="CryptoDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CryptoDisplay.Designer.cs">
+      <DependentUpon>CryptoDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cryptography.cs" />
     <Compile Include="Display.cs">
       <SubType>Form</SubType>
@@ -77,6 +83,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CryptoDisplay.resx">
+      <DependentUpon>CryptoDisplay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
     </EmbeddedResource>

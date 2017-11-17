@@ -125,6 +125,15 @@ namespace arescrypt
             if (CryptoKeys.encKey != null && CryptoKeys.encKey != "")
             {
                 var confirm = MessageBox.Show("Would you like to launch decryption?", "Encryption Keys have been recieved.", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    CryptoDisplay cd = new CryptoDisplay();
+
+                    cd.addLineToConsole("testing...");
+                    cd.addLineToConsole("hello world...");
+                    
+                    cd.ShowDialog(this);
+                }
             }
             else
             {

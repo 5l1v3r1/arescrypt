@@ -73,10 +73,11 @@
             this.displayMessage.Multiline = true;
             this.displayMessage.Name = "displayMessage";
             this.displayMessage.ReadOnly = true;
-            this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.displayMessage.Size = new System.Drawing.Size(625, 331);
             this.displayMessage.TabIndex = 16;
             this.displayMessage.Text = resources.GetString("displayMessage.Text");
+            this.displayMessage.WordWrap = false;
             // 
             // pictureBox1
             // 
