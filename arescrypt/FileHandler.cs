@@ -32,9 +32,22 @@ namespace arescrypt
                 return false;
             else
             {
-                string oldFilename = filename;
                 File.Move(filename, filename + suffix);
                 if (File.Exists(filename + suffix)) // Check if filename was changed. 
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        public static bool subtractSuffixFromFile(string suffix, string filename)
+        {
+            if (!filename.Contains(suffix))
+                return false;
+            else
+            {
+                File.Move(filename, filename.Substring(filename.Length - 4));
+                if (File.Exists(filename.Substring(filename.Length - 4)))
                     return true;
                 else
                     return false;

