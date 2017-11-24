@@ -21,13 +21,12 @@ namespace arescrypt
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-
-
+        
         // Open, read, and encrypt files
         public static bool EncryptFile_Aes(string fileName, byte[] Key, byte[] IV)
         {
             try
-            {
+            {                
                 // Grab all plaintext from file
                 string plainTextContents = File.ReadAllText(fileName);
                 // Encrypt plaintext data (previously retrieved from file)
@@ -43,15 +42,18 @@ namespace arescrypt
         {
             try
             {
+                Console.WriteLine("Keysize: " + Key.Length + ", IV length: " + IV.Length);
+                Console.WriteLine("encKey: " + Convert.ToBase64String(Key) + "\nencIV: " + Convert.ToBase64String(IV));
                 // Grab all plaintext from file
                 byte[] encryptedContents = Convert.FromBase64String(File.ReadAllText(fileName));
+                Console.WriteLine("Enc Contents Length: " + encryptedContents.Length);
                 // Encrypt plaintext data (previously retrieved from file)
                 string plainTextContents = DecryptStringFromBytes_Aes(encryptedContents, Key, IV);
                 // Write all encrypted data to file in Base64 format
                 File.WriteAllText(fileName, plainTextContents);
 
                 return true;
-            } catch (Exception) { return false; }
+            } catch (Exception exc) { Console.WriteLine(exc.Message);  return false; }
         }
 
         static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
@@ -125,7 +127,6 @@ namespace arescrypt
                     {
                         using (StreamReader srDecrypt = new StreamReader(csDecrypt))
                         {
-
                             // Read the decrypted bytes from the decrypting stream
                             // and place them in a string.
                             plaintext = srDecrypt.ReadToEnd();

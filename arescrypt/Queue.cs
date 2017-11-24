@@ -94,6 +94,9 @@ namespace arescrypt
                             {
                                 if (FileHandler.subtractSuffixFromFile(config.encryptedFileSuffix, file))
                                         Console.WriteLine("File, " + file, ", was decrypted successfully.");
+                            } else
+                            {
+                                Console.WriteLine("file, " + file + ", couldn't be decrypted.");
                             }
                         }
                     }
