@@ -61,20 +61,22 @@
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(150, 35);
             this.label1.TabIndex = 3;
             // 
             // displayMessage
             // 
             this.displayMessage.BackColor = System.Drawing.SystemColors.Control;
             this.displayMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.displayMessage.Location = new System.Drawing.Point(247, 49);
+            this.displayMessage.Location = new System.Drawing.Point(370, 75);
+            this.displayMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.displayMessage.Multiline = true;
             this.displayMessage.Name = "displayMessage";
             this.displayMessage.ReadOnly = true;
             this.displayMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.displayMessage.Size = new System.Drawing.Size(625, 331);
+            this.displayMessage.Size = new System.Drawing.Size(936, 507);
             this.displayMessage.TabIndex = 16;
             this.displayMessage.Text = resources.GetString("displayMessage.Text");
             this.displayMessage.WordWrap = false;
@@ -83,9 +85,10 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(229, 207);
+            this.pictureBox1.Size = new System.Drawing.Size(344, 318);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -94,9 +97,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(278, 9);
+            this.label2.Location = new System.Drawing.Point(417, 14);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(553, 37);
+            this.label2.Size = new System.Drawing.Size(834, 55);
             this.label2.TabIndex = 4;
             this.label2.Text = "You have been infected by AresCrypt!\r\n";
             // 
@@ -104,9 +108,11 @@
             // 
             this.groupBox1.Controls.Add(this.paymentTimer_Rise);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 222);
+            this.groupBox1.Location = new System.Drawing.Point(18, 342);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(229, 79);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(344, 122);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
@@ -114,9 +120,10 @@
             // 
             this.paymentTimer_Rise.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentTimer_Rise.ForeColor = System.Drawing.Color.White;
-            this.paymentTimer_Rise.Location = new System.Drawing.Point(73, 40);
+            this.paymentTimer_Rise.Location = new System.Drawing.Point(110, 62);
+            this.paymentTimer_Rise.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.paymentTimer_Rise.Name = "paymentTimer_Rise";
-            this.paymentTimer_Rise.Size = new System.Drawing.Size(88, 24);
+            this.paymentTimer_Rise.Size = new System.Drawing.Size(132, 37);
             this.paymentTimer_Rise.TabIndex = 1;
             this.paymentTimer_Rise.Text = "72:00:00\r\n";
             // 
@@ -125,9 +132,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(22, 16);
+            this.label3.Location = new System.Drawing.Point(33, 25);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(187, 24);
+            this.label3.Size = new System.Drawing.Size(294, 33);
             this.label3.TabIndex = 0;
             this.label3.Text = "Payment will Rise On";
             // 
@@ -135,9 +143,11 @@
             // 
             this.groupBox2.Controls.Add(this.paymentTimer_Lost);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(12, 301);
+            this.groupBox2.Location = new System.Drawing.Point(18, 463);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(229, 79);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(344, 122);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
@@ -145,9 +155,10 @@
             // 
             this.paymentTimer_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentTimer_Lost.ForeColor = System.Drawing.Color.White;
-            this.paymentTimer_Lost.Location = new System.Drawing.Point(68, 40);
+            this.paymentTimer_Lost.Location = new System.Drawing.Point(102, 62);
+            this.paymentTimer_Lost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.paymentTimer_Lost.Name = "paymentTimer_Lost";
-            this.paymentTimer_Lost.Size = new System.Drawing.Size(93, 24);
+            this.paymentTimer_Lost.Size = new System.Drawing.Size(140, 37);
             this.paymentTimer_Lost.TabIndex = 1;
             this.paymentTimer_Lost.Text = "168:00:00\r\n";
             // 
@@ -155,9 +166,10 @@
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(6, 16);
+            this.label6.Location = new System.Drawing.Point(9, 25);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 24);
+            this.label6.Size = new System.Drawing.Size(326, 37);
             this.label6.TabIndex = 0;
             this.label6.Text = "Your files will be lost on";
             // 
@@ -166,18 +178,21 @@
             this.groupBox3.Controls.Add(this.copyBtn);
             this.groupBox3.Controls.Add(this.cryptoAddress);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(247, 386);
+            this.groupBox3.Location = new System.Drawing.Point(370, 594);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 79);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(938, 122);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             // 
             // copyBtn
             // 
             this.copyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyBtn.Location = new System.Drawing.Point(439, 43);
+            this.copyBtn.Location = new System.Drawing.Point(658, 66);
+            this.copyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.copyBtn.Name = "copyBtn";
-            this.copyBtn.Size = new System.Drawing.Size(107, 23);
+            this.copyBtn.Size = new System.Drawing.Size(160, 35);
             this.copyBtn.TabIndex = 8;
             this.copyBtn.Text = "Copy";
             this.copyBtn.UseVisualStyleBackColor = true;
@@ -186,11 +201,12 @@
             // cryptoAddress
             // 
             this.cryptoAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cryptoAddress.Location = new System.Drawing.Point(19, 43);
+            this.cryptoAddress.Location = new System.Drawing.Point(28, 66);
+            this.cryptoAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cryptoAddress.Multiline = true;
             this.cryptoAddress.Name = "cryptoAddress";
             this.cryptoAddress.ReadOnly = true;
-            this.cryptoAddress.Size = new System.Drawing.Size(414, 23);
+            this.cryptoAddress.Size = new System.Drawing.Size(619, 33);
             this.cryptoAddress.TabIndex = 17;
             this.cryptoAddress.Text = "Crypto Address";
             // 
@@ -199,18 +215,20 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(15, 16);
+            this.label8.Location = new System.Drawing.Point(22, 25);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(532, 24);
+            this.label8.Size = new System.Drawing.Size(833, 33);
             this.label8.TabIndex = 0;
             this.label8.Text = "Send $500 USD worth of Bitcoin/Litecoin/Zcash to this address:";
             // 
             // checkpaymentBtn
             // 
             this.checkpaymentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkpaymentBtn.Location = new System.Drawing.Point(247, 471);
+            this.checkpaymentBtn.Location = new System.Drawing.Point(370, 725);
+            this.checkpaymentBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkpaymentBtn.Name = "checkpaymentBtn";
-            this.checkpaymentBtn.Size = new System.Drawing.Size(194, 37);
+            this.checkpaymentBtn.Size = new System.Drawing.Size(291, 57);
             this.checkpaymentBtn.TabIndex = 9;
             this.checkpaymentBtn.Text = "Check Payment";
             this.checkpaymentBtn.UseVisualStyleBackColor = true;
@@ -219,9 +237,10 @@
             // decryptBtn
             // 
             this.decryptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decryptBtn.Location = new System.Drawing.Point(678, 471);
+            this.decryptBtn.Location = new System.Drawing.Point(1017, 725);
+            this.decryptBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.decryptBtn.Name = "decryptBtn";
-            this.decryptBtn.Size = new System.Drawing.Size(194, 37);
+            this.decryptBtn.Size = new System.Drawing.Size(291, 57);
             this.decryptBtn.TabIndex = 10;
             this.decryptBtn.Text = "Decrypt Files";
             this.decryptBtn.UseVisualStyleBackColor = true;
@@ -237,9 +256,10 @@
             // 
             this.aboutBitcoin.AutoSize = true;
             this.aboutBitcoin.LinkColor = System.Drawing.Color.White;
-            this.aboutBitcoin.Location = new System.Drawing.Point(62, 402);
+            this.aboutBitcoin.Location = new System.Drawing.Point(93, 618);
+            this.aboutBitcoin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aboutBitcoin.Name = "aboutBitcoin";
-            this.aboutBitcoin.Size = new System.Drawing.Size(70, 13);
+            this.aboutBitcoin.Size = new System.Drawing.Size(104, 20);
             this.aboutBitcoin.TabIndex = 11;
             this.aboutBitcoin.TabStop = true;
             this.aboutBitcoin.Text = "About Bitcoin";
@@ -249,9 +269,10 @@
             // 
             this.aboutLitecoin.AutoSize = true;
             this.aboutLitecoin.LinkColor = System.Drawing.Color.White;
-            this.aboutLitecoin.Location = new System.Drawing.Point(62, 434);
+            this.aboutLitecoin.Location = new System.Drawing.Point(93, 668);
+            this.aboutLitecoin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aboutLitecoin.Name = "aboutLitecoin";
-            this.aboutLitecoin.Size = new System.Drawing.Size(76, 13);
+            this.aboutLitecoin.Size = new System.Drawing.Size(114, 20);
             this.aboutLitecoin.TabIndex = 12;
             this.aboutLitecoin.TabStop = true;
             this.aboutLitecoin.Text = "About LiteCoin";
@@ -261,9 +282,10 @@
             // 
             this.aboutZcash.AutoSize = true;
             this.aboutZcash.LinkColor = System.Drawing.Color.White;
-            this.aboutZcash.Location = new System.Drawing.Point(62, 471);
+            this.aboutZcash.Location = new System.Drawing.Point(93, 725);
+            this.aboutZcash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aboutZcash.Name = "aboutZcash";
-            this.aboutZcash.Size = new System.Drawing.Size(68, 13);
+            this.aboutZcash.Size = new System.Drawing.Size(100, 20);
             this.aboutZcash.TabIndex = 13;
             this.aboutZcash.TabStop = true;
             this.aboutZcash.Text = "About Zcash";
@@ -278,10 +300,11 @@
             // uniqueKeyDisplay
             // 
             this.uniqueKeyDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.uniqueKeyDisplay.Location = new System.Drawing.Point(448, 486);
+            this.uniqueKeyDisplay.Location = new System.Drawing.Point(672, 748);
+            this.uniqueKeyDisplay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uniqueKeyDisplay.Name = "uniqueKeyDisplay";
             this.uniqueKeyDisplay.ReadOnly = true;
-            this.uniqueKeyDisplay.Size = new System.Drawing.Size(224, 22);
+            this.uniqueKeyDisplay.Size = new System.Drawing.Size(334, 30);
             this.uniqueKeyDisplay.TabIndex = 14;
             this.uniqueKeyDisplay.Text = "Unique ID";
             // 
@@ -289,27 +312,28 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(448, 471);
+            this.label4.Location = new System.Drawing.Point(672, 725);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.Size = new System.Drawing.Size(123, 20);
             this.label4.TabIndex = 15;
             this.label4.Text = "Unique User ID:";
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(247, 25);
+            this.textBox1.Location = new System.Drawing.Point(370, 38);
             this.textBox1.Margin = new System.Windows.Forms.Padding(0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(0, 20);
+            this.textBox1.Size = new System.Drawing.Size(0, 26);
             this.textBox1.TabIndex = 1;
             // 
             // Display
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(882, 520);
+            this.ClientSize = new System.Drawing.Size(1323, 800);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.uniqueKeyDisplay);
@@ -325,6 +349,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.displayMessage);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Display";

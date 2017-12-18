@@ -118,25 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="displayMessage.Text" xml:space="preserve">
-    <value>What happened to your computer?
-Your important file are encrypted!
-Many of your documents, photos, videos, databases and others files are no longer
-accessable because they have been encrypted with AES 256! Maybe you are looking for
-away to recover your files. Do not waste your time trying to recover your files without paying for
-a decryption key.
+    <value>Hello. Your files have been encrypted. 
+You must pay the amount defined below, and then send an
+email carrying a screenshot (for proof), your Unique User ID,
+and the wallet address used to pay the ransom. 
 
-Can I recover my files?
-YES! You just don't have enough time. You may pay in Bitcoins, Litecoin, or Zcash! You only have 
-3 days to pay for a decrytion key, after that the price will double! If you do not pay in 7 days all of your files
-will be gone forever.
+Once all this has been finished, we will proceed to verify that
+all submitted information is accurate, then we may return your
+email to inform you of your current account's status. 
 
-How do I pay?
-You can pay in the 3 payments posted. For more information please vist your coins website. Please send the correct 
-amount to the addess on the screen. After you have paid, please click on &lt;Check Payment&gt; Once the payment is checked,
-you can start decrypting your files! 
-
-We strongly recommand you not to remove this software. Until you pay and the payment gets processed. If your anti-virus
-updates and removes this software automaticaly. It will not be able to recover your files even if you pay!</value>
+Happy hacking!</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
