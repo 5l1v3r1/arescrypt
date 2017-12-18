@@ -26,16 +26,17 @@ namespace arescrypt
         public static bool EncryptFile_Aes(string fileName, byte[] Key, byte[] IV)
         {
             try
-            {                
+            {
                 // Grab all plaintext from file
                 string plainTextContents = File.ReadAllText(fileName);
                 // Encrypt plaintext data (previously retrieved from file)
                 byte[] encryptedContents = EncryptStringToBytes_Aes(plainTextContents, Key, IV);
                 // Write all encrypted data to file in Base64 format
+
                 File.WriteAllText(fileName, Convert.ToBase64String(encryptedContents));
 
                 return true;
-            } catch (Exception) { return false; }
+            } catch (Exception exc) { Console.WriteLine("EncryptFile_Aes(): " + exc.Message);  return false; }
         }
 
         public static bool DecryptFile_Aes(string fileName, byte[] Key, byte[] IV)
@@ -45,7 +46,7 @@ namespace arescrypt
                 Console.WriteLine("Keysize: " + Key.Length + ", IV length: " + IV.Length);
                 Console.WriteLine("encKey: " + Convert.ToBase64String(Key) + "\nencIV: " + Convert.ToBase64String(IV));
                 // Grab all plaintext from file
-                byte[] encryptedContents = Convert.FromBase64String(File.ReadAllText(fileName));
+                byte[] encryptedContents = Convert.FromBase64String(File.ReadAllText(fileName).Replace(" ", "+"));
                 Console.WriteLine("Enc Contents Length: " + encryptedContents.Length);
                 // Encrypt plaintext data (previously retrieved from file)
                 string plainTextContents = DecryptStringFromBytes_Aes(encryptedContents, Key, IV);
@@ -53,7 +54,7 @@ namespace arescrypt
                 File.WriteAllText(fileName, plainTextContents);
 
                 return true;
-            } catch (Exception exc) { Console.WriteLine(exc.Message);  return false; }
+            } catch (Exception exc) { Console.WriteLine("DecryptFile_Aes(): " + exc.Message);  return false; }
         }
 
         static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)

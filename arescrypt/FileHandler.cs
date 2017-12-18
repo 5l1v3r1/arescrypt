@@ -32,11 +32,14 @@ namespace arescrypt
                 return false;
             else
             {
-                File.Move(filename, filename + suffix);
-                if (File.Exists(filename + suffix)) // Check if filename was changed. 
-                    return true;
-                else
-                    return false;
+                try
+                {
+                    File.Move(filename, filename + suffix);
+                    if (File.Exists(filename + suffix)) // Check if filename was changed. 
+                        return true;
+                    else
+                        return false;
+                } catch (Exception) { return false; }
             }
         }
 
@@ -46,7 +49,7 @@ namespace arescrypt
                 return false;
             else
             {
-                File.Move(filename, filename.Substring(filename.Length - 4));
+                File.Move(filename, filename.Substring(0, filename.Length - 4));
                 if (File.Exists(filename.Substring(filename.Length - 4)))
                     return true;
                 else
