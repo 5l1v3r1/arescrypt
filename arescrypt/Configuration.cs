@@ -12,7 +12,7 @@
         // Debugging configuration
         public bool sandBox = true; // Safemode for testing/debugging
         public string sandBoxDirectory = currentWorkingDirectory + @"\sandboxedDirectory";
-        public bool debugMode = true; // Debug mode will enable/disable display of the Debug Console/GUI
+        public bool debugMode = false; // Debug mode will enable/disable display of the Debug Console/GUI
 
         // Encryption/Decryption configuration
         public string encryptedFileSuffix = ".enc";

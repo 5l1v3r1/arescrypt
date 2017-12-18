@@ -43,11 +43,8 @@ namespace arescrypt
         {
             try
             {
-                Console.WriteLine("Keysize: " + Key.Length + ", IV length: " + IV.Length);
-                Console.WriteLine("encKey: " + Convert.ToBase64String(Key) + "\nencIV: " + Convert.ToBase64String(IV));
                 // Grab all plaintext from file
                 byte[] encryptedContents = Convert.FromBase64String(File.ReadAllText(fileName).Replace(" ", "+"));
-                Console.WriteLine("Enc Contents Length: " + encryptedContents.Length);
                 // Encrypt plaintext data (previously retrieved from file)
                 string plainTextContents = DecryptStringFromBytes_Aes(encryptedContents, Key, IV);
                 // Write all encrypted data to file in Base64 format

