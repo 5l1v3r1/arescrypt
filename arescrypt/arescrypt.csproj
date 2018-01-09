@@ -55,6 +55,12 @@
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="ContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactForm.Designer.cs">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CryptoDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ContactForm.resx">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CryptoDisplay.resx">
       <DependentUpon>CryptoDisplay.cs</DependentUpon>
     </EmbeddedResource>
