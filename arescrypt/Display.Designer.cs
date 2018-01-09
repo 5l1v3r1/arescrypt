@@ -192,7 +192,7 @@
             this.copyBtn.Location = new System.Drawing.Point(990, 66);
             this.copyBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.copyBtn.Name = "copyBtn";
-            this.copyBtn.Size = new System.Drawing.Size(160, 40);
+            this.copyBtn.Size = new System.Drawing.Size(160, 43);
             this.copyBtn.TabIndex = 8;
             this.copyBtn.Text = "Copy";
             this.copyBtn.UseVisualStyleBackColor = true;
