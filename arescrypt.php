@@ -18,10 +18,13 @@ if ($mysqli->connect_error) {
 }
 // connected successfully
 
+<<<<<<< HEAD
 if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['contact'])) {
 	echo "contact page opened.";
 }
 
+=======
+>>>>>>> 6fcc16d2ff79ab9d63c859a18427cae02b6311ba
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	// echo "Loaded through " . $_SERVER['REQUEST_METHOD'] ." request";
 	$verifiedAccount = false; // False by default to prevent leaks
@@ -50,6 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	}
 
 } elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
+<<<<<<< HEAD
+=======
+	// echo "Loaded through " . $_SERVER['REQUEST_METHOD'] . " request.";
+>>>>>>> 6fcc16d2ff79ab9d63c859a18427cae02b6311ba
 
 /*
 CREATE TABLE victims (
