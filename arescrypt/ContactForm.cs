@@ -15,6 +15,8 @@ namespace arescrypt
         public ContactForm()
         {
             InitializeComponent();
+
+            this.webBrowser1.Navigate("http://localhost/arescrypt.php?contact&uniqueId=asdfasdf");
         }
     }
 }
