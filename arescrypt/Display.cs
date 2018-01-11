@@ -104,7 +104,7 @@ namespace arescrypt
         { MessageBox.Show("Learn more about Litecoin at [https://litecoin.com/]"); }
 
         private void contactButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        { MessageBox.Show("Learn more about Zcash at [https://z.cash/]"); }
+        { ContactForm cm = new ContactForm(); cm.Show(); }
 
         private void checkpaymentBtn_Click(object sender, EventArgs e)
         {

@@ -218,9 +218,9 @@
             this.amountChargeNotice.Location = new System.Drawing.Point(22, 25);
             this.amountChargeNotice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.amountChargeNotice.Name = "amountChargeNotice";
-            this.amountChargeNotice.Size = new System.Drawing.Size(636, 33);
+            this.amountChargeNotice.Size = new System.Drawing.Size(566, 33);
             this.amountChargeNotice.TabIndex = 0;
-            this.amountChargeNotice.Text = "Send $500 USD worth of Bitcoin to this address:";
+            this.amountChargeNotice.Text = "Send $__ worth of Bitcoins to this address:";
             // 
             // checkpaymentBtn
             // 
