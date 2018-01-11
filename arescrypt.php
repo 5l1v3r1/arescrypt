@@ -18,6 +18,10 @@ if ($mysqli->connect_error) {
 }
 // connected successfully
 
+if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['contact'])) {
+	echo "contact page opened.";
+}
+
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	// echo "Loaded through " . $_SERVER['REQUEST_METHOD'] ." request";
 	$verifiedAccount = false; // False by default to prevent leaks
@@ -46,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	}
 
 } elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
-	// echo "Loaded through " . $_SERVER['REQUEST_METHOD'] . " request.";
 
 /*
 CREATE TABLE victims (
