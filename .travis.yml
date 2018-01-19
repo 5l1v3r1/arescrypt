@@ -1,7 +1,7 @@
 language: csharp
 solution: arescrypt.sln
 install:
- - nuget Install-Package Costura.Fody
- - nuget Install-Package Newtonsoft.Json
+ - nuget install Costura.Fody
+ - nuget install Newtonsoft.Json
 script:
  - ./build-release.bat
