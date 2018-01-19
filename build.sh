@@ -1,0 +1,1 @@
+msbuild arescrypt.sln /t:Build /p:Configuration=Release

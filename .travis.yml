@@ -5,3 +5,4 @@ install:
  - nuget update arescrypt.sln -Verbosity detailed
  - nuget install Costura.Fody
  - nuget install Newtonsoft.Json
+script: ./build.sh
