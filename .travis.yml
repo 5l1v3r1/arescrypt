@@ -1,7 +1,6 @@
 language: csharp
 solution: arescrypt.sln
 install:
- - nuget
  - nuget restore arescrypt.sln -Verbosity detailed
  - nuget update arescrypt.sln -Verbosity detailed
  - nuget install Costura.Fody
