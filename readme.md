@@ -34,6 +34,9 @@ Some of these may not be required, but they do help in development
  * MySql database
  * Moderate understanding of C-Sharp (C#) and PHP - I can't guarantee 100% stability as of now
 
+### Build Status
+![Travis Build Status](https://travis-ci.org/BlackVikingPro/arescrypt.svg?branch=master "Travis Build Status")
+
 ***
 
 ### TODO
