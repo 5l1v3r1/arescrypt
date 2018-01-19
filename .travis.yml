@@ -3,5 +3,3 @@ solution: arescrypt.sln
 install:
  - nuget install Costura.Fody
  - nuget install Newtonsoft.Json
-script:
- - ./build-release.bat
