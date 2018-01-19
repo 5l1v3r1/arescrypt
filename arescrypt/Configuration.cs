@@ -21,6 +21,7 @@
         /* Timer application */
         public int lostTimer_Hours = 0xA8; public int lostTimer_Minutes = 0x0; public int lostTimer_Seconds = 0x0;
         public int riseTimer_Hours = 0x48; public int riseTimer_Minutes = 0x0; public int riseTimer_Seconds = 0x0;
+
         public string cryptoAddress = "<Example Bitcoin Address>"; // insert Bitcoin address here
 
         // Initial ammount to charge

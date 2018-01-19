@@ -199,7 +199,7 @@
             this.copyBtn.Click += new System.EventHandler(this.copyBtn_Click);
             // 
             // cryptoAddress
-            // 
+            //
             this.cryptoAddress.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cryptoAddress.Location = new System.Drawing.Point(28, 66);
             this.cryptoAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -363,8 +363,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AresCrypt v1.0 - An educational project built by @BlackVikingPro and @BlackBirdDr" +
-    "";
+            this.Text = "AresCrypt v1.0 - An educational project built by @BlackVikingPro and @BlackBirdDr";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.preventClose);
             ((System.ComponentModel.ISupportInitialize)(this.arescryptLogo)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -118,6 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="displayMessage.Text" xml:space="preserve">
+<<<<<<< HEAD
     <value>What Happened to My Computer?
 Your important files are encrypted.
 Many of your documents, photos, videos, databases, and other files are no longer

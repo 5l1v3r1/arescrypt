@@ -90,9 +90,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="ContactForm.resx">
       <DependentUpon>ContactForm.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> 6fcc16d2ff79ab9d63c859a18427cae02b6311ba
     <EmbeddedResource Include="CryptoDisplay.resx">
       <DependentUpon>CryptoDisplay.cs</DependentUpon>
     </EmbeddedResource>
