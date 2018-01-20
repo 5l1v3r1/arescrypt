@@ -6,4 +6,4 @@ install:
  - nuget install Costura.Fody
  - nuget install Newtonsoft.Json
 script:
- - xbuild /t:Build /p:Configuration=Release arescrypt.sln
+ - msbuild /t:Build /p:Configuration=Release arescrypt.sln
